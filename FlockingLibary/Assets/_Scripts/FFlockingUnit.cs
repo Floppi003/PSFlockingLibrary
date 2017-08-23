@@ -11,6 +11,10 @@ public class FFlockingUnit : MonoBehaviour {
 	Vector3 currentForce;
 	private Vector3 previousPosition = Vector3.zero;
 
+	private float timeUntilNextRandom = 2.0f;
+	private float maximumTimeUntilNextRandom = 3.0f;
+	private float strengthRandomizer;
+
 	void Start() {
 		velocity = new Vector3(Random.Range(0.01f, 0.01f),0f, Random.Range(0.01f, 0.01f));
 		location = new Vector3 (this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
@@ -41,6 +45,7 @@ public class FFlockingUnit : MonoBehaviour {
 
 	Vector3 align() {
 		float alignmentDistance = manager.GetComponent<FUnitManager> ().alignmentDistance;
+
 		Vector3 sum = Vector3.zero;
 		int count = 0;
 		foreach (GameObject other in manager.GetComponent<FUnitManager>().units) {
@@ -58,7 +63,10 @@ public class FFlockingUnit : MonoBehaviour {
 			
 		if (count > 0) {
 			sum /= count;
-			Vector3 steer = sum * this.manager.GetComponent<FUnitManager>().alignmentStrength;
+			float strengthMultiplier = this.manager.GetComponent<FUnitManager> ().alignmentStrength + strengthRandomizer;
+			strengthMultiplier = Mathf.Max (strengthMultiplier, 0.0f);
+			strengthMultiplier = Mathf.Min (strengthMultiplier, 1.0f);
+			Vector3 steer = sum * strengthMultiplier;
 			return steer;
 		}
 
@@ -67,6 +75,7 @@ public class FFlockingUnit : MonoBehaviour {
 
 	Vector3 cohesion() {
 		float cohesionDistance = manager.GetComponent<FUnitManager> ().cohesionDistance;
+
 		Vector3 sum = Vector3.zero;
 		int count = 0;
 		foreach (GameObject other in manager.GetComponent<FUnitManager>().units) {
@@ -85,7 +94,10 @@ public class FFlockingUnit : MonoBehaviour {
 		if (count > 0) {
 			sum /= count;
 			Vector3 vectorToMiddle = seek (sum);
-			vectorToMiddle = vectorToMiddle * manager.GetComponent<FUnitManager>().cohesionStrength * 2.0f;
+			float strengthMultiplier = manager.GetComponent<FUnitManager> ().cohesionStrength + strengthRandomizer;
+			strengthMultiplier = Mathf.Max (strengthMultiplier, 0.0f);
+			strengthMultiplier = Mathf.Min (strengthMultiplier, 1.0f);
+			vectorToMiddle = vectorToMiddle * strengthMultiplier * 2.0f;
 			return vectorToMiddle;
 		}
 
@@ -113,8 +125,11 @@ public class FFlockingUnit : MonoBehaviour {
 			}
 		}
 
-		float separation = this.manager.GetComponent<FUnitManager> ().separationStrength;
-		force = (force.normalized * separation * 2.0f);
+		float randomizerStrength = manager.GetComponent<FUnitManager> ().randomizerStrength;
+		float strengthMultiplier = this.manager.GetComponent<FUnitManager> ().separationStrength + this.strengthRandomizer;
+		strengthMultiplier = Mathf.Max (strengthMultiplier, 0.0f);
+		strengthMultiplier = Mathf.Min (strengthMultiplier, 1.0f);
+		force = (force.normalized * strengthMultiplier * 2.0f);
 		force = force + force.normalized;
 		return force;
 	}
@@ -156,6 +171,10 @@ public class FFlockingUnit : MonoBehaviour {
 		applyForce (currentForce);
 	}
 
+	private void makeNewRandom() {
+		this.strengthRandomizer = Random.Range (0.0f, manager.GetComponent<FUnitManager> ().randomizerStrength) - (manager.GetComponent<FUnitManager> ().randomizerStrength / 2.0f);
+	}
+
 	void Update() {
 		flock ();
 		goalPos = manager.transform.position;
@@ -163,5 +182,12 @@ public class FFlockingUnit : MonoBehaviour {
 		// look to the front
 		this.transform.LookAt(this.transform.position + (this.transform.position - this.previousPosition));
 		this.previousPosition = this.transform.position;
+
+		// update strength timer
+		this.timeUntilNextRandom -= Time.deltaTime;
+		if (this.timeUntilNextRandom < 0.0f) {
+			this.makeNewRandom ();
+			this.timeUntilNextRandom = Random.Range (1.0f, this.maximumTimeUntilNextRandom);
+		}
 	}
 }
