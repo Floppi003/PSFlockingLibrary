@@ -9,6 +9,7 @@ public class FlockingUnit : MonoBehaviour {
 	public Vector3 velocity;
 	Vector3 goalPos = Vector3.zero;
 	Vector3 currentForce;
+	private Vector3 previousPosition = Vector3.zero;
 
 	void Start() {
 		velocity = new Vector3(Random.Range(0.01f, 0.01f),0f, Random.Range(0.01f, 0.01f));
@@ -28,6 +29,7 @@ public class FlockingUnit : MonoBehaviour {
 		}
 
 		this.GetComponent<Rigidbody> ().AddForce (appylingForce);
+
 
 		if (this.GetComponent<Rigidbody> ().velocity.magnitude > manager.GetComponent<UnitManager> ().maxvelocity) {
 			this.GetComponent<Rigidbody> ().velocity = this.GetComponent<Rigidbody> ().velocity.normalized;
@@ -92,7 +94,7 @@ public class FlockingUnit : MonoBehaviour {
 		location = this.transform.position;
 		velocity = this.GetComponent<Rigidbody> ().velocity;
 
-		if (manager.GetComponent<UnitManager> ().obedient && Random.Range (0, 50) <= 1) {
+		if (manager.GetComponent<UnitManager> ().obedient/* && Random.Range (0, 50) <= 1*/) {
 			Vector3 ali = align ();
 			Vector3 coh = cohesion ();
 			Vector3 gl;
@@ -118,6 +120,10 @@ public class FlockingUnit : MonoBehaviour {
 
 	void Update() {
 		flock ();
-		goalPos = manager.transform.position;	
+		goalPos = manager.transform.position;
+
+		// look to the front
+		this.transform.LookAt(this.transform.position + (this.transform.position - this.previousPosition));
+		this.previousPosition = this.transform.position;
 	}
 }

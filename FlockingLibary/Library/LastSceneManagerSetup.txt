@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/FloppiScene.unity
+- path: Assets/_Scenes/FScene2.unity
   isLoaded: 1
   isActive: 1
