@@ -23,5 +23,6 @@ public class PSCameraManager : MonoBehaviour {
 
 		// make the camera look at the center
 		this.transform.LookAt(center);
+		this.transform.position = center + new Vector3 (0.0f, 12.0f, -8.0f);
 	}
 }

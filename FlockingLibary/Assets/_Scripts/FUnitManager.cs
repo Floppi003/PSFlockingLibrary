@@ -24,7 +24,10 @@ public class FUnitManager : MonoBehaviour {
 	public float maxvelocity = 2.0f;
 
 	[Range(0, 1)]
-	public float alignment = 0.5f;
+	public float alignmentStrength = 0.5f;
+
+	[Range(0, 100)]
+	public float alignmentDistance = 6;
 
 	[Range(0, 1)]
 	public float cohesionStrength = 0.5f;

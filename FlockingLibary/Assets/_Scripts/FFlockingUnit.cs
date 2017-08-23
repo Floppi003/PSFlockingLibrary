@@ -40,7 +40,7 @@ public class FFlockingUnit : MonoBehaviour {
 	}
 
 	Vector3 align() {
-		float neighbordist = manager.GetComponent<FUnitManager> ().neighbourDistance;
+		float alignmentDistance = manager.GetComponent<FUnitManager> ().alignmentDistance;
 		Vector3 sum = Vector3.zero;
 		int count = 0;
 		foreach (GameObject other in manager.GetComponent<FUnitManager>().units) {
@@ -48,9 +48,9 @@ public class FFlockingUnit : MonoBehaviour {
 				continue;
 			}
 
-			float d = Vector3.Distance (location, other.GetComponent<FFlockingUnit> ().location);
+			float distance = Vector3.Distance (location, other.GetComponent<FFlockingUnit> ().location);
 
-			if (d < neighbordist) {
+			if (distance < alignmentDistance) {
 				sum += other.GetComponent<FFlockingUnit> ().velocity;
 				count++;
 			}
@@ -58,8 +58,7 @@ public class FFlockingUnit : MonoBehaviour {
 			
 		if (count > 0) {
 			sum /= count;
-			Vector3 steer = sum * this.manager.GetComponent<FUnitManager>().alignment;
-			Debug.Log ("sum: " + sum + ", steer: " + steer);
+			Vector3 steer = sum * this.manager.GetComponent<FUnitManager>().alignmentStrength;
 			return steer;
 		}
 
@@ -127,10 +126,10 @@ public class FFlockingUnit : MonoBehaviour {
 		if (manager.GetComponent<FUnitManager> ().obedient/* && Random.Range (0, 50) <= 1*/) {
 
 			//Vector3 coh = Vector3.zero;
-			Vector3 ali = Vector3.zero;
+			//Vector3 ali = Vector3.zero;
 			//Vector3 separation = Vector3.zero;
 
-			//Vector3 ali = align ();
+			Vector3 ali = align ();
 			Vector3 coh = this.cohesion ();
 			Vector3 separation = this.separation();
 
