@@ -53,11 +53,15 @@ public class FFlockingUnit : MonoBehaviour {
 				continue;
 			}
 
+			// check if other boid is within distance 
 			float distance = Vector3.Distance (location, other.GetComponent<FFlockingUnit> ().location);
-
 			if (distance < alignmentDistance) {
-				sum += other.GetComponent<FFlockingUnit> ().velocity;
-				count++;
+
+				// check if other boid is within viewing angle
+				if (this.isWithinViewingAngle(other)) {
+					sum += other.GetComponent<FFlockingUnit> ().velocity;
+					count++;
+				}
 			}
 		}
 			
@@ -74,20 +78,31 @@ public class FFlockingUnit : MonoBehaviour {
 	}
 
 	Vector3 cohesion() {
+		// get the maximum distance other boids can be away to be still taken into account for cohesion
 		float cohesionDistance = manager.GetComponent<FUnitManager> ().cohesionDistance;
 
+		// prepare variables
 		Vector3 sum = Vector3.zero;
 		int count = 0;
+
+		// get all boids
 		foreach (GameObject other in manager.GetComponent<FUnitManager>().units) {
+
+			// do not compare this boid to itself
 			if (other == this.gameObject) {
 				continue;
 			}
 
-			float d = Vector3.Distance (location, other.GetComponent<FFlockingUnit> ().location);
+			// get distance from this boid to other boid
+			float distance = Vector3.Distance (location, other.GetComponent<FFlockingUnit> ().location);
 
-			if (d < cohesionDistance) {
-				sum += other.GetComponent<FFlockingUnit> ().location;
-				count++;
+			// compare if boid is within distance
+			if (distance < cohesionDistance) {
+				// check if other boid is within viewing angle
+				if (this.isWithinViewingAngle(other)) {
+					sum += other.GetComponent<FFlockingUnit> ().location;
+					count++;
+				}
 			}
 		}
 
@@ -117,14 +132,18 @@ public class FFlockingUnit : MonoBehaviour {
 
 			// check if the other unit is within the separation-visibility-distance
 			if (distance < separationDistance) {
+
+				// check if the boid is within viewing angle
+				if (this.isWithinViewingAngle(other)) {
 				
-				// bring the force in a range of 0..1, depending on distance
-				float separationForce = Mathf.Pow(1 - (distance / separationDistance), 3) * 10.0f; // makes it exponentially strong when they get really close together
-				Vector3 direction = other.GetComponent<FFlockingUnit> ().location - location;
-				direction = direction * (-1);
-				direction = direction.normalized;
-				direction = direction * separationForce;
-				force += direction;
+					// bring the force in a range of 0..1, depending on distance
+					float separationForce = Mathf.Pow(1 - (distance / separationDistance), 3) * 10.0f; // makes it exponentially strong when they get really close together
+					Vector3 direction = other.GetComponent<FFlockingUnit> ().location - location;
+					direction = direction * (-1);
+					direction = direction.normalized;
+					direction = direction * separationForce;
+					force += direction;
+				}
 			}
 		}
 
@@ -195,6 +214,17 @@ public class FFlockingUnit : MonoBehaviour {
 		if (this.timeUntilNextRandom < 0.0f) {
 			this.makeNewRandom ();
 			this.timeUntilNextRandom = Random.Range (1.0f, this.maximumTimeUntilNextRandom);
+		}
+	}
+
+	bool isWithinViewingAngle(GameObject other) {
+		// check whether that boid is within the viewing angle
+		float viewingAngle = manager.GetComponent<FUnitManager>().viewingAngle;
+		float angle = Vector3.Angle (this.transform.forward, this.seek(other.transform.position).normalized);
+		if (angle < (viewingAngle / 2.0f)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

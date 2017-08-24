@@ -42,6 +42,9 @@ public class FUnitManager : MonoBehaviour {
 	[Range(0, 1)]
 	public float randomizerStrength = 0.2f;
 
+	[Range(0, 360)]
+	public float viewingAngle = 170.0f;
+
 	// Update is called once per frame
 	void Start () {
 		units = new GameObject[numUnits];
