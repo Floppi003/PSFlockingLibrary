@@ -111,12 +111,15 @@ public class FFlockingUnit : MonoBehaviour {
 				continue;
 			}
 
+			// get the distance to the other object, and the total allowed distance for seperation to work
 			float distance = Vector3.Distance (location, other.GetComponent<FFlockingUnit>().location);
 			float separationDistance = this.manager.GetComponent<FUnitManager> ().separationDistance;
 
 			// check if the other unit is within the separation-visibility-distance
 			if (distance < separationDistance) {
-				float separationForce = distance / separationDistance;
+				
+				// bring the force in a range of 0..1, depending on distance
+				float separationForce = Mathf.Pow(1 - (distance / separationDistance), 3) * 10.0f; // makes it exponentially strong when they get really close together
 				Vector3 direction = other.GetComponent<FFlockingUnit> ().location - location;
 				direction = direction * (-1);
 				direction = direction.normalized;
@@ -128,8 +131,12 @@ public class FFlockingUnit : MonoBehaviour {
 		float strengthMultiplier = this.manager.GetComponent<FUnitManager> ().separationStrength + this.strengthRandomizer;
 		strengthMultiplier = Mathf.Max (strengthMultiplier, 0.0f);
 		strengthMultiplier = Mathf.Min (strengthMultiplier, 1.0f);
-		force = (force.normalized * strengthMultiplier * 2.0f);
+		force = force * strengthMultiplier * 2.0f;
 		force = force + force.normalized;
+
+		Debug.Log ("separation force: " + force);
+		Debug.DrawRay (this.transform.position, force, Color.magenta);
+
 		return force;
 	}
 
@@ -147,8 +154,6 @@ public class FFlockingUnit : MonoBehaviour {
 			Vector3 coh = this.cohesion ();
 			Vector3 separation = this.separation();
 			Vector3 goal = Vector3.zero;
-
-			Debug.Log ("cohesion: " + coh + ", separation: " + separation);
 
 			// check if there is a goal 
 			if (manager.GetComponent<FUnitManager> ().seekGoal) {

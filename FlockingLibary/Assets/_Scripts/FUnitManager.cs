@@ -15,8 +15,8 @@ public class FUnitManager : MonoBehaviour {
 	public bool obedient = true;
 	public bool willful = false;
 
-	[Range(0,2)]
-	public float maxForce = 0.5f;
+	[Range(0,10)]
+	public float maxForce = 4.0f;
 
 	[Range(0,5)]
 	public float maxvelocity = 2.0f;
