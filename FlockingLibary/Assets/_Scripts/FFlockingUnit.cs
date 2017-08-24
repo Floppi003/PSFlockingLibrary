@@ -125,7 +125,6 @@ public class FFlockingUnit : MonoBehaviour {
 			}
 		}
 
-		float randomizerStrength = manager.GetComponent<FUnitManager> ().randomizerStrength;
 		float strengthMultiplier = this.manager.GetComponent<FUnitManager> ().separationStrength + this.strengthRandomizer;
 		strengthMultiplier = Mathf.Max (strengthMultiplier, 0.0f);
 		strengthMultiplier = Mathf.Min (strengthMultiplier, 1.0f);
@@ -147,18 +146,21 @@ public class FFlockingUnit : MonoBehaviour {
 			Vector3 ali = align ();
 			Vector3 coh = this.cohesion ();
 			Vector3 separation = this.separation();
+			Vector3 goal = Vector3.zero;
 
 			Debug.Log ("cohesion: " + coh + ", separation: " + separation);
 
-			Vector3 gl;
-
+			// check if there is a goal 
 			if (manager.GetComponent<FUnitManager> ().seekGoal) {
-				gl = seek (goalPos);
-				currentForce = gl + ali + coh + separation;
-			} else {
-				currentForce = ali + coh + separation;
+				// get the goal
+				GameObject goalGO = manager.GetComponent<FUnitManager>().goal;
+				if (goalGO != null) {
+					goal = seek (goalGO.transform.position);
+				}
 			}
 
+			// add the differenct forces up and normalize
+			currentForce = goal + ali + coh + separation;
 			currentForce = currentForce.normalized;
 		}
 
