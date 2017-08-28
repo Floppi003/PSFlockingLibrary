@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FUnitManager : MonoBehaviour {
+// Unity3D C# Coding Guidelines: http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines
+
+public class FUnitManager : MonoBehaviour 
+{
 
 	public bool manualStart = false;
 	public GameObject[] units;
 	public GameObject unitPrefab;
 	public int numUnits = 100;
-	public Vector3 spawnRange = new Vector3 (10.0f, 5f, 10.0f);
+	public Vector3 spawnRange = new Vector3(10.0f, 5f, 10.0f);
 	public GameObject goal;
 
 	public bool seekGoal = true;
@@ -58,21 +61,26 @@ public class FUnitManager : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Start () {
+	void Start() 
+	{
 		units = new GameObject[numUnits];
 
-		if (manualStart) {
+		if (manualStart) 
+		{
 			// manually find all gameobjects
 			units = GameObject.FindGameObjectsWithTag("Boid");
-			foreach (GameObject unit in units) {
-				unit.GetComponent<FFlockingUnit> ().manager = this.gameObject;
+			foreach (GameObject unit in units) 
+			{
+				unit.GetComponent<FFlockingUnit>().manager = this.gameObject;
 			}
 
-		} else {
-			for (int i = 0; i < numUnits; i++) {
-				Vector3 unitPos = new Vector3 (Random.Range (-spawnRange.x, spawnRange.x), 0.5f, Random.Range (-spawnRange.z, spawnRange.z));
-				units [i] = Instantiate (unitPrefab, unitPos, Quaternion.LookRotation (new Vector3 (Random.Range (0.0f, 1.0f), Random.Range (0.0f, 1.0f), Random.Range (0.0f, 1.0f)))) as GameObject;
-				units [i].GetComponent<FFlockingUnit> ().manager = this.transform.gameObject;
+		} else 
+		{
+			for (int i = 0; i < numUnits; i++) 
+			{
+				Vector3 unitPos = new Vector3(Random.Range(-spawnRange.x, spawnRange.x), 0.5f, Random.Range(-spawnRange.z, spawnRange.z));
+				units[i] = Instantiate(unitPrefab, unitPos, Quaternion.LookRotation (new Vector3(Random.Range (0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)))) as GameObject;
+				units[i].GetComponent<FFlockingUnit>().manager = this.transform.gameObject;
 			}
 		}
 	}
