@@ -7,7 +7,8 @@ using UnityEngine;
 public class PSFlockingUnit : MonoBehaviour 
 {
 
-	// Reference to the Manager Object which has the PSUnitManager Script attached to it
+	//! Reference to the Manager Object which has the FUnitManager Script attached to it.
+	/*! Set this variable manually if "manualStart" is set in FUnitManager. */	
 	public GameObject manager;
 
 	private Vector3 velocity;
@@ -22,13 +23,22 @@ public class PSFlockingUnit : MonoBehaviour
 
 	#region MonoBehaviour Subclassing
 
-	void Start() 
+	/**
+	 * @brief Called once from Unity. Do not call manually.
+	 * Sets up variables needed later.
+	 */
+	protected void Start() 
 	{
 		// set initial values for velocity
 		velocity = new Vector3(Random.Range(0.01f, 0.01f),0f, Random.Range(0.01f, 0.01f));
 	}
 
-	void Update() 
+	/*!
+	 * @brief Called periodically from Unity. Do not call manually.
+	 * Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-Velocity-Changer.
+	 * @sa flock()
+	 */
+	protected void Update() 
 	{
 		Flock();
 
