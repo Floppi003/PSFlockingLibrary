@@ -217,7 +217,7 @@ public class PSFlockingUnit : MonoBehaviour
 			currentForce = currentForce.normalized;
 		}
 
-		if (manager.GetComponent<PSUnitManager>().willful && Random.Range(0, 50) <= 1) 
+		if (Random.Range(0, 50) <= 1) 
 		{
 			if (Random.Range (0, 50) < 1) 
 			{
