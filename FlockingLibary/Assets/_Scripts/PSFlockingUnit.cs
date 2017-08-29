@@ -30,7 +30,7 @@ public class PSFlockingUnit : MonoBehaviour
 
 	void Update() 
 	{
-		flock();
+		Flock();
 
 		// look to the front
 		this.transform.LookAt(this.transform.position + (this.transform.position - this.previousPosition));
@@ -40,7 +40,7 @@ public class PSFlockingUnit : MonoBehaviour
 		this.timeUntilNextRandom -= Time.deltaTime;
 		if (this.timeUntilNextRandom < 0.0f) 
 		{
-			this.makeNewRandom();
+			this.MakeNewRandom();
 			this.timeUntilNextRandom = Random.Range(1.0f, this.maximumTimeUntilNextRandom);
 		}
 	}
@@ -52,7 +52,7 @@ public class PSFlockingUnit : MonoBehaviour
 
 	#region Flocking Behaviour
 
-	private Vector3 align() 
+	private Vector3 Align() 
 	{
 		float alignmentDistance = manager.GetComponent<PSUnitManager>().alignmentDistance;
 
@@ -71,7 +71,7 @@ public class PSFlockingUnit : MonoBehaviour
 			{
 
 				// check if other boid is within viewing angle
-				if (this.isWithinViewingAngle(other)) 
+				if (this.IsWithinViewingAngle(other)) 
 				{
 					sum += other.GetComponent<PSFlockingUnit>().velocity;
 					count++;
@@ -92,7 +92,7 @@ public class PSFlockingUnit : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	private Vector3 cohesion() 
+	private Vector3 Cohesion() 
 	{
 		// get the maximum distance other boids can be away to be still taken into account for cohesion
 		float cohesionDistance = manager.GetComponent<PSUnitManager>().cohesionDistance;
@@ -118,7 +118,7 @@ public class PSFlockingUnit : MonoBehaviour
 			if (distance < cohesionDistance) 
 			{
 				// check if other boid is within viewing angle
-				if (this.isWithinViewingAngle(other)) 
+				if (this.IsWithinViewingAngle(other)) 
 				{
 					sum += other.transform.position;
 					count++;
@@ -129,7 +129,7 @@ public class PSFlockingUnit : MonoBehaviour
 		if (count > 0) 
 		{
 			sum /= count;
-			Vector3 vectorToMiddle = this.vectorToTarget(sum);
+			Vector3 vectorToMiddle = this.VectorToTarget(sum);
 			float strengthMultiplier = manager.GetComponent<PSUnitManager>().cohesionStrength + strengthRandomizer;
 			strengthMultiplier = Mathf.Max(strengthMultiplier, 0.0f);
 			strengthMultiplier = Mathf.Min(strengthMultiplier, 1.0f);
@@ -140,7 +140,7 @@ public class PSFlockingUnit : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	private Vector3 separation() 
+	private Vector3 Separation() 
 	{
 		Vector3 force = Vector3.zero;
 		foreach (GameObject other in manager.GetComponent<PSUnitManager>().units) 
@@ -159,7 +159,7 @@ public class PSFlockingUnit : MonoBehaviour
 			{
 
 				// check if the boid is within viewing angle
-				if (this.isWithinViewingAngle(other)) 
+				if (this.IsWithinViewingAngle(other)) 
 				{
 
 					// bring the force in a range of 0..1, depending on distance
@@ -184,7 +184,7 @@ public class PSFlockingUnit : MonoBehaviour
 		return force;
 	}
 
-	private void flock() 
+	private void Flock() 
 	{
 		velocity = this.GetComponent<Rigidbody>().velocity;
 		Vector3 currentForce = Vector3.zero;
@@ -196,9 +196,9 @@ public class PSFlockingUnit : MonoBehaviour
 			//Vector3 ali = Vector3.zero;
 			//Vector3 separation = Vector3.zero;
 
-			Vector3 ali = align();
-			Vector3 coh = this.cohesion();
-			Vector3 separation = this.separation();
+			Vector3 ali = this.Align();
+			Vector3 coh = this.Cohesion();
+			Vector3 separation = this.Separation();
 			Vector3 goal = Vector3.zero;
 
 			// check if there is a goal 
@@ -208,7 +208,7 @@ public class PSFlockingUnit : MonoBehaviour
 				GameObject goalGO = manager.GetComponent<PSUnitManager>().goal;
 				if (goalGO != null) 
 				{
-					goal = this.vectorToTarget(goalGO.transform.position);
+					goal = this.VectorToTarget(goalGO.transform.position);
 				}
 			}
 
@@ -225,7 +225,7 @@ public class PSFlockingUnit : MonoBehaviour
 			}
 		}
 
-		applyForce(currentForce);
+		this.ApplyForce(currentForce);
 	}
 
 	#endregion
@@ -235,12 +235,12 @@ public class PSFlockingUnit : MonoBehaviour
 
 	#region Other Functions
 
-	private Vector3 vectorToTarget(Vector3 target) 
+	private Vector3 VectorToTarget(Vector3 target) 
 	{
 		return(target - this.transform.position);
 	}
 
-	private void applyForce(Vector3 force) 
+	private void ApplyForce(Vector3 force) 
 	{
 		Vector3 appylingForce = new Vector3(force.x, 0f, force.z);
 
@@ -262,16 +262,16 @@ public class PSFlockingUnit : MonoBehaviour
 		//Debug.DrawRay (this.transform.position, appylingForce, Color.red);
 	}
 
-	private void makeNewRandom() 
+	private void MakeNewRandom() 
 	{
 		this.strengthRandomizer = Random.Range(0.0f, manager.GetComponent<PSUnitManager>().randomizerStrength) - (manager.GetComponent<PSUnitManager>().randomizerStrength / 2.0f);
 	}
 
-	private bool isWithinViewingAngle(GameObject other) 
+	private bool IsWithinViewingAngle(GameObject other) 
 	{
 		// check whether that boid is within the viewing angle
 		float viewingAngle = manager.GetComponent<PSUnitManager>().viewingAngle;
-		float angle = Vector3.Angle (this.transform.forward, this.vectorToTarget(other.transform.position).normalized);
+		float angle = Vector3.Angle (this.transform.forward, this.VectorToTarget(other.transform.position).normalized);
 		if (angle < (viewingAngle / 2.0f)) 
 		{
 			return true;
