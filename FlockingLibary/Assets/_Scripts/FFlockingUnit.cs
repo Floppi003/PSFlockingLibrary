@@ -7,7 +7,8 @@ using UnityEngine;
 public class FFlockingUnit : MonoBehaviour 
 {
 
-	// Reference to the Manager Object which has the FUnitManager Script attached to it
+	//! Reference to the Manager Object which has the FUnitManager Script attached to it.
+	/*! Set this variable manually if "manualStart" is set in FUnitManager. */
 	public GameObject manager;
 
 	private Vector3 velocity;
@@ -18,17 +19,24 @@ public class FFlockingUnit : MonoBehaviour
 	private float maximumTimeUntilNextRandom = 3.0f;
 	private float strengthRandomizer;
 
-
-
 	#region MonoBehaviour Subclassing
 
-	void Start() 
+	/**
+	 * @brief Called once from Unity. Do not call manually.
+	 * Sets up variables needed later.
+	 */
+	protected void Start() 
 	{
 		// set initial values for velocity
 		velocity = new Vector3(Random.Range(0.01f, 0.01f),0f, Random.Range(0.01f, 0.01f));
 	}
 
-	void Update() 
+	/*!
+	 * @brief Called periodically from Unity. Do not call manually.
+	 * Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-Velocity-Changer.
+	 * @sa flock()
+	 */
+	protected void Update() 
 	{
 		flock();
 
@@ -189,7 +197,7 @@ public class FFlockingUnit : MonoBehaviour
 		velocity = this.GetComponent<Rigidbody>().velocity;
 		Vector3 currentForce = Vector3.zero;
 
-		if (manager.GetComponent<FUnitManager>().obedient/* && Random.Range (0, 50) <= 1*/) 
+		if (true/* && Random.Range (0, 50) <= 1*/) 
 		{
 
 			//Vector3 coh = Vector3.zero;
@@ -217,7 +225,7 @@ public class FFlockingUnit : MonoBehaviour
 			currentForce = currentForce.normalized;
 		}
 
-		if (manager.GetComponent<FUnitManager>().willful && Random.Range(0, 50) <= 1) 
+		if (Random.Range(0, 50) <= 1) 
 		{
 			if (Random.Range (0, 50) < 1) 
 			{

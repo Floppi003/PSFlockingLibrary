@@ -1,0 +1,61 @@
+\hypertarget{class_f_flocking_unit}{}\section{F\+Flocking\+Unit Class Reference}
+\label{class_f_flocking_unit}\index{F\+Flocking\+Unit@{F\+Flocking\+Unit}}
+Inheritance diagram for F\+Flocking\+Unit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_flocking_unit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_flocking_unit_a37ff018f3fcd1581b114549cf550361e}\label{class_f_flocking_unit_a37ff018f3fcd1581b114549cf550361e}} 
+Vector3 \hyperlink{class_f_flocking_unit_a37ff018f3fcd1581b114549cf550361e}{align} ()
+\begin{DoxyCompactList}\small\item\em Aligns the Boids to each other. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \hyperlink{class_f_flocking_unit_af63c7d39a0269bb66be7f75c7ee830be}{manager}
+\begin{DoxyCompactList}\small\item\em Reference to the Manager Object which has the \hyperlink{class_f_unit_manager}{F\+Unit\+Manager} Script attached to it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_flocking_unit_a2d94e65705a7536fc3c16b2013f9cc16}\label{class_f_flocking_unit_a2d94e65705a7536fc3c16b2013f9cc16}} 
+void \hyperlink{class_f_flocking_unit_a2d94e65705a7536fc3c16b2013f9cc16}{Start} ()
+\begin{DoxyCompactList}\small\item\em Called once from Unity. Do not call manually. Sets up variables needed later. \end{DoxyCompactList}\item 
+void \hyperlink{class_f_flocking_unit_a86c5e9761219f7e36329f497406ef47b}{Update} ()
+\begin{DoxyCompactList}\small\item\em Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_flocking_unit_a86c5e9761219f7e36329f497406ef47b}\label{class_f_flocking_unit_a86c5e9761219f7e36329f497406ef47b}} 
+\index{F\+Flocking\+Unit@{F\+Flocking\+Unit}!Update@{Update}}
+\index{Update@{Update}!F\+Flocking\+Unit@{F\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void F\+Flocking\+Unit.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. 
+
+\begin{DoxySeeAlso}{See also}
+flock() 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_f_flocking_unit_af63c7d39a0269bb66be7f75c7ee830be}\label{class_f_flocking_unit_af63c7d39a0269bb66be7f75c7ee830be}} 
+\index{F\+Flocking\+Unit@{F\+Flocking\+Unit}!manager@{manager}}
+\index{manager@{manager}!F\+Flocking\+Unit@{F\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{manager}{manager}}
+{\footnotesize\ttfamily Game\+Object F\+Flocking\+Unit.\+manager}
+
+
+
+Reference to the Manager Object which has the \hyperlink{class_f_unit_manager}{F\+Unit\+Manager} Script attached to it. 
+
+Set this variable manually if \char`\"{}manual\+Start\char`\"{} is set in \hyperlink{class_f_unit_manager}{F\+Unit\+Manager}. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+\_\+\+Scripts/F\+Flocking\+Unit.\+cs\end{DoxyCompactItemize}

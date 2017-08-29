@@ -1,0 +1,70 @@
+\hypertarget{class_f_unit_manager}{}\section{F\+Unit\+Manager Class Reference}
+\label{class_f_unit_manager}\index{F\+Unit\+Manager@{F\+Unit\+Manager}}
+Inheritance diagram for F\+Unit\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_unit_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_unit_manager_af516b428d69f61e7373d2e223ba2a9a9}\label{class_f_unit_manager_af516b428d69f61e7373d2e223ba2a9a9}} 
+Game\+Object \mbox{[}$\,$\mbox{]} \hyperlink{class_f_unit_manager_af516b428d69f61e7373d2e223ba2a9a9}{units}
+\begin{DoxyCompactList}\small\item\em Array holding the boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_abdafb326f485fc9f68150a9a5d00ab6d}\label{class_f_unit_manager_abdafb326f485fc9f68150a9a5d00ab6d}} 
+bool \hyperlink{class_f_unit_manager_abdafb326f485fc9f68150a9a5d00ab6d}{manual\+Start} = false
+\begin{DoxyCompactList}\small\item\em Will not place any boids automatically in the scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a11b10c5e2eda939b9a408b878b0bf5d7}\label{class_f_unit_manager_a11b10c5e2eda939b9a408b878b0bf5d7}} 
+Game\+Object \hyperlink{class_f_unit_manager_a11b10c5e2eda939b9a408b878b0bf5d7}{unit\+Prefab}
+\begin{DoxyCompactList}\small\item\em Prefab Object from which the Boids will be created. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a042d6edcb06e9b9c79c56e4cc722d385}\label{class_f_unit_manager_a042d6edcb06e9b9c79c56e4cc722d385}} 
+int \hyperlink{class_f_unit_manager_a042d6edcb06e9b9c79c56e4cc722d385}{num\+Units} = 100
+\begin{DoxyCompactList}\small\item\em Number of Boids that will be created. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a96ce82693289e9fded138cf1f59c4c40}\label{class_f_unit_manager_a96ce82693289e9fded138cf1f59c4c40}} 
+Vector3 \hyperlink{class_f_unit_manager_a96ce82693289e9fded138cf1f59c4c40}{spawn\+Range} = new Vector3(10.\+0f, 5f, 10.\+0f)
+\begin{DoxyCompactList}\small\item\em The Spawnrange in which the Boids will be instantiated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a43c285fed4df2253698b2f9e472e3add}\label{class_f_unit_manager_a43c285fed4df2253698b2f9e472e3add}} 
+Game\+Object \hyperlink{class_f_unit_manager_a43c285fed4df2253698b2f9e472e3add}{goal}
+\begin{DoxyCompactList}\small\item\em A Goal the Boids will follow, if seek\+Goal is set to true. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a79d01dac80c57300f39750b6f6d920eb}\label{class_f_unit_manager_a79d01dac80c57300f39750b6f6d920eb}} 
+bool \hyperlink{class_f_unit_manager_a79d01dac80c57300f39750b6f6d920eb}{seek\+Goal} = true
+\begin{DoxyCompactList}\small\item\em If set to true, the Boids will follow the \char`\"{}goal\char`\"{} Game\+Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_ae2bb63f32195acc71f88cdf7c656fd44}\label{class_f_unit_manager_ae2bb63f32195acc71f88cdf7c656fd44}} 
+bool \hyperlink{class_f_unit_manager_ae2bb63f32195acc71f88cdf7c656fd44}{obedient} = true
+\begin{DoxyCompactList}\small\item\em Will apply random forces to boids from time to time, if set to true. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a120a66886a707186f5d8de29d4d4fcba}\label{class_f_unit_manager_a120a66886a707186f5d8de29d4d4fcba}} 
+float \hyperlink{class_f_unit_manager_a120a66886a707186f5d8de29d4d4fcba}{max\+Force} = 4.\+0f
+\begin{DoxyCompactList}\small\item\em The maximum Force that will be applied to the Boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_acf8af35dd5ba76af298dd14a941116cd}\label{class_f_unit_manager_acf8af35dd5ba76af298dd14a941116cd}} 
+float \hyperlink{class_f_unit_manager_acf8af35dd5ba76af298dd14a941116cd}{maxvelocity} = 2.\+0f
+\begin{DoxyCompactList}\small\item\em The maximum Velocity the Boids can reach. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a6fffed9f8949e5908b5ff789779b8abb}\label{class_f_unit_manager_a6fffed9f8949e5908b5ff789779b8abb}} 
+float \hyperlink{class_f_unit_manager_a6fffed9f8949e5908b5ff789779b8abb}{alignment\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will align to each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a58ef6cb569af68ab076ea7ba13920620}\label{class_f_unit_manager_a58ef6cb569af68ab076ea7ba13920620}} 
+float \hyperlink{class_f_unit_manager_a58ef6cb569af68ab076ea7ba13920620}{alignment\+Distance} = 6
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make alignmet work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_ab81d3274a3cd1fbd52bea96df052dac4}\label{class_f_unit_manager_ab81d3274a3cd1fbd52bea96df052dac4}} 
+float \hyperlink{class_f_unit_manager_ab81d3274a3cd1fbd52bea96df052dac4}{cohesion\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will stick to each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a4288c71deee22c3f89aa418ea31294bb}\label{class_f_unit_manager_a4288c71deee22c3f89aa418ea31294bb}} 
+float \hyperlink{class_f_unit_manager_a4288c71deee22c3f89aa418ea31294bb}{cohesion\+Distance} = 6
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make cohesion work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a592278d1412ee25871d11b26cfca66e6}\label{class_f_unit_manager_a592278d1412ee25871d11b26cfca66e6}} 
+float \hyperlink{class_f_unit_manager_a592278d1412ee25871d11b26cfca66e6}{separation\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will try to move away from each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a99ced2e66851fd9dc1356935710cb315}\label{class_f_unit_manager_a99ced2e66851fd9dc1356935710cb315}} 
+float \hyperlink{class_f_unit_manager_a99ced2e66851fd9dc1356935710cb315}{separation\+Distance} = 5
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make separation work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_a4e7f24e9faeda6f66ab7f5a6d193cff6}\label{class_f_unit_manager_a4e7f24e9faeda6f66ab7f5a6d193cff6}} 
+float \hyperlink{class_f_unit_manager_a4e7f24e9faeda6f66ab7f5a6d193cff6}{randomizer\+Strength} = 0.\+2f
+\begin{DoxyCompactList}\small\item\em Sets how much randomized Force should be applied to the Boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_f_unit_manager_ad341d31117c315aa6c66bfd8fb6e848b}\label{class_f_unit_manager_ad341d31117c315aa6c66bfd8fb6e848b}} 
+float \hyperlink{class_f_unit_manager_ad341d31117c315aa6c66bfd8fb6e848b}{viewing\+Angle} = 170.\+0f
+\begin{DoxyCompactList}\small\item\em The angle in which a Boid can \char`\"{}see\char`\"{} others. Cohesion, Alignment, Separation will only be applied if Boids are within the viewing Angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+\_\+\+Scripts/F\+Unit\+Manager.\+cs\end{DoxyCompactItemize}
