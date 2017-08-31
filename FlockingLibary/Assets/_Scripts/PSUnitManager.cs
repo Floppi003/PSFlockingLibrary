@@ -7,7 +7,8 @@ using UnityEngine;
 public class PSUnitManager : MonoBehaviour 
 {
 	//! Array holding the boids
-	public GameObject[] units;
+	public List<GameObject> units;
+	//public GameObject[] units;
 
 	//! Will not place any boids automatically in the scene.
 	public bool manualStart = false;
@@ -102,17 +103,26 @@ public class PSUnitManager : MonoBehaviour
 
 
 	// Update is called once per frame
-	void Start() 
+	protected void Start() 
 	{
-		units = new GameObject[numUnits];
+		//units = new GameObject[numUnits];
+		units = new List<GameObject>();
 
 		if (manualStart) 
 		{
 			// manually find all gameobjects
-			units = GameObject.FindGameObjectsWithTag("Boid");
+			units.AddRange(GameObject.FindGameObjectsWithTag("Boid"));
 			foreach (GameObject unit in units) 
 			{
-				unit.GetComponent<PSFlockingUnit>().manager = this.gameObject;
+
+				// Add the PSFlockingUnit Component to the boid, if not already attached
+				PSFlockingUnit flockingUnit = unit.GetComponent<PSFlockingUnit>();
+				if (flockingUnit == null) 
+				{
+					flockingUnit = unit.AddComponent<PSFlockingUnit>();
+					flockingUnit.Manager = this.gameObject;
+				}
+				unit.GetComponent<PSFlockingUnit>().Manager = this.gameObject;
 			}
 
 		} else 
@@ -120,9 +130,41 @@ public class PSUnitManager : MonoBehaviour
 			for (int i = 0; i < numUnits; i++) 
 			{
 				Vector3 unitPos = new Vector3(Random.Range(-spawnRange.x, spawnRange.x), 0.5f, Random.Range(-spawnRange.z, spawnRange.z));
-				units[i] = Instantiate(unitPrefab, unitPos, Quaternion.LookRotation (new Vector3(Random.Range (0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)))) as GameObject;
-				units[i].GetComponent<PSFlockingUnit>().manager = this.transform.gameObject;
+				units.Add(Instantiate(unitPrefab, unitPos, Quaternion.LookRotation (new Vector3(Random.Range (0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)))) as GameObject);
+				units[i].GetComponent<PSFlockingUnit>().Manager = this.transform.gameObject;
 			}
+		}
+	}
+
+	public void AddFlockingUnit(GameObject flocker)
+	{
+		// add a PSFlockingUnit Component to the GameObject if not already attached to it
+		PSFlockingUnit flockingUnit = flocker.GetComponent<PSFlockingUnit>();
+		if (flockingUnit == null) 
+		{
+			flockingUnit = flocker.AddComponent<PSFlockingUnit>();
+		}
+
+		// configure the PSFlockingUnit component
+		flockingUnit.Manager = this.gameObject;
+
+		// Add a rigidbody Component to the GameObject if not already attached to it
+		Rigidbody rigidbody = flocker.GetComponent<Rigidbody>();
+		if (rigidbody == null) 
+		{
+			Rigidbody rb = flocker.AddComponent<Rigidbody>();
+			rb.useGravity = false;
+		}
+
+		// Add the flocker to the units
+		this.units.Add(flocker);
+	}
+
+	public void RemoveFlockingUnit(GameObject flocker) 
+	{
+		if (this.units.Contains(flocker))
+		{
+				this.units.Remove(flocker);
 		}
 	}
 }

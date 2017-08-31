@@ -7,9 +7,28 @@ using UnityEngine;
 public class PSFlockingUnit : MonoBehaviour 
 {
 
+
+	//! Gets and Sets the GameObject holding a PSUnitManager Component. The setter only works, if the passed GameObject holds a PSUnitManager component.
+	public GameObject Manager 
+	{	
+		get 
+		{ 
+			return manager;
+		}
+
+		set 
+		{ 
+			PSUnitManager unitManager = value.GetComponent<PSUnitManager>();
+			if (unitManager != null) {
+				manager = value;
+			}
+		}
+	}
+		
+	[SerializeField]
 	//! Reference to the Manager Object which has the FUnitManager Script attached to it.
-	/*! Set this variable manually if "manualStart" is set in FUnitManager. */	
-	public GameObject manager;
+	/*! All GameObjects that are created by PSUnitManager, will have this property set automatically. If you manually add a gameobject to the PSUnitManager, then use the Manager property. The setter will only work, if the passed GameObject holds a PSUnitManager Component. */
+	private GameObject manager;
 
 	private Vector3 velocity;
 	private Vector3 previousPosition = Vector3.zero;
@@ -40,6 +59,15 @@ public class PSFlockingUnit : MonoBehaviour
 	 */
 	protected void Update() 
 	{
+
+		// early out if no manager is set, or the manager does not have a PSUnitManager script attached to it
+		if (this.manager == null || this.manager.GetComponent<PSUnitManager>() == null) 
+		{
+			return;
+		}
+
+
+
 		Flock();
 
 		// look to the front
@@ -62,7 +90,7 @@ public class PSFlockingUnit : MonoBehaviour
 
 	#region Flocking Behaviour
 
-	private Vector3 Align() 
+	protected virtual Vector3 Align() 
 	{
 		float alignmentDistance = manager.GetComponent<PSUnitManager>().alignmentDistance;
 
@@ -102,7 +130,7 @@ public class PSFlockingUnit : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	private Vector3 Cohesion() 
+	protected virtual Vector3 Cohesion() 
 	{
 		// get the maximum distance other boids can be away to be still taken into account for cohesion
 		float cohesionDistance = manager.GetComponent<PSUnitManager>().cohesionDistance;
@@ -150,7 +178,7 @@ public class PSFlockingUnit : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	private Vector3 Separation() 
+	protected virtual Vector3 Separation() 
 	{
 		Vector3 force = Vector3.zero;
 		foreach (GameObject other in manager.GetComponent<PSUnitManager>().units) 
