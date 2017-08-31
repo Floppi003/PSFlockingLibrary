@@ -19,7 +19,7 @@ Each of these rules can be overriden to calculate a custom force that should be 
 
 ## Getting PSFlockingLibrary
 
-You can download the complete Unity Project where two example scenes are added, demonstrating the standard flocking behaviour and a simple script subclassing the flocking class to create a customized flocking behaviour. 
+You can download the complete Unity Project with two example scenes, demonstrating the standard flocking behaviour and a simple script subclassing the flocking class to create a customized flocking behaviour. 
 
 Alternatively you can download the .dll file at the release page.
 
