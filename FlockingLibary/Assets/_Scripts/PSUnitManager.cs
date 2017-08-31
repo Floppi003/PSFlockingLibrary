@@ -40,11 +40,11 @@ namespace PSFlocking
 		// Force & Velocity
 		// - - - - - - - - - - 
 
-		[Range(0,10)]
+		[Range(0,50)]
 		//! The maximum Force that will be applied to the units.
 		public float maxForce = 4.0f;
 
-		[Range(0,5)]
+		[Range(0,10)]
 		//! The maximum Velocity the units can reach.
 		public float maxvelocity = 2.0f;
 
