@@ -24,6 +24,8 @@ Each of these rules can be overriden to calculate a custom force that should be 
 
 
 ## Contributors
+[Florian Peinsold](https://github.com/Floppi003) (Maintainer)
+[Philipp Sonnleitner](https://github.com/AlmostSonny)
 
 
 ## License
