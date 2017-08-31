@@ -1,6 +1,4 @@
-README.md
-
-#PSFlockingLibrary
+# PSFlockingLibrary
 
 PSFlockingLibrary is a customizable Unity3D Flocking-Library used on Rigidbodies. It follows three general rules: 
 
