@@ -15,3 +15,17 @@ Each of these rules can be overriden to calculate a custom force that should be 
 * Autocreate boids at startup
 * Add and Remove Boids at any time
 
+
+## Getting PSFlockingLibrary
+
+
+
+## Usage
+
+
+## Contributors
+
+
+## License
+
+PSFlockingLibrary is released under the [MIT license](https://github.com/npruehs/game-math/blob/develop/LICENSE).
