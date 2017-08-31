@@ -169,6 +169,13 @@ namespace PSFlocking
 		 */
 		public void AddFlockingUnit(GameObject flocker)
 		{
+			// early out if parameter is null
+			if (flocker == null) 
+			{
+				return;
+			}
+
+
 			// add a PSFlockingUnit Component to the GameObject if not already attached to it
 			PSFlockingUnit flockingUnit = flocker.GetComponent<PSFlockingUnit>();
 			if (flockingUnit == null) 
@@ -199,9 +206,16 @@ namespace PSFlocking
 		 */
 		public void RemoveFlockingUnit(GameObject flocker) 
 		{
+			// early out if parameter is null
+			if (flocker == null) 
+			{
+				return;
+			}
+
+
 			if (this.units.Contains(flocker))
 			{
-					this.units.Remove(flocker);
+				this.units.Remove(flocker);
 			}
 		}
 
