@@ -28,10 +28,7 @@ namespace PSFlocking
 		}
 			
 		[SerializeField]
-		//! Reference to the Manager Object which has the FUnitManager Script attached to it.
-		/*! All GameObjects that are created by PSUnitManager, will have this property set automatically. If you manually add a gameobject to the PSUnitManager, then use the Manager property. The setter will only work, if the passed GameObject holds a PSUnitManager Component. */
 		private GameObject manager;
-
 		private Vector3 velocity;
 		private Vector3 previousPosition = Vector3.zero;
 
@@ -46,7 +43,6 @@ namespace PSFlocking
 
 		/**
 		 * @brief Called once from Unity. Do not call manually.
-		 * Sets up variables needed later.
 		 */
 		protected void Start() 
 		{
@@ -54,10 +50,8 @@ namespace PSFlocking
 			velocity = new Vector3(Random.Range(0.01f, 0.01f),0f, Random.Range(0.01f, 0.01f));
 		}
 
-		/*!
+		/**
 		 * @brief Called periodically from Unity. Do not call manually.
-		 * Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-Velocity-Changer.
-		 * @sa flock()
 		 */
 		protected void Update() 
 		{
@@ -92,6 +86,13 @@ namespace PSFlocking
 
 		#region Flocking Behaviour
 
+		/**
+		 * @brief Calculates a vector to align the unit to other units surrounding it.
+		 * This function gets all surrounding units that are within the alignmentDistance from PSUnitManager, and also within the viewingAngle from PSUnitManager. 
+		 * It returns the average velocity of all those units, altered slightly by strengthRandomizer from PSUnitManager. 
+		 * This function can be overridden in a subclass.
+		 * @return Vector3 Alignment for the Unit, will be applied as a force on its rigidbody.
+		 */ 
 		protected virtual Vector3 Align() 
 		{
 			Debug.Log ("Align parent class");
@@ -133,6 +134,13 @@ namespace PSFlocking
 			return Vector3.zero;
 		}
 
+		/**
+		 * @brief Calculates a vector to move the unit closer to the flock center.
+		 * This function gets all surrounding units that are within the cohesionDistance from PSUnitManager, and also within the viewingAngle from PSUnitManager. 
+		 * It returns a vector pointing to the center of all those units.
+		 * This function can be overridden in a subclass.
+		 * @return Vector3 Cohesion for the Unit, will be applied as a force on its rigidbody.
+		 */ 
 		protected virtual Vector3 Cohesion() 
 		{
 			Debug.Log ("Cohesion parent class");
@@ -182,6 +190,13 @@ namespace PSFlocking
 			return Vector3.zero;
 		}
 
+		/**
+		 * @brief Calculates a vector to move the unit awayf rom other units nearby.
+		 * This function gets all surrounding units that are within the separationDistance from PSUnitManager, and also within the viewingAngle from PSUnitManager. 
+		 * It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3).
+		 * This function can be overridden in a subclass.
+		 * @return Vector3 Separation for the Unit, will be applied as a force on its rigidbody.
+		 */ 
 		protected virtual Vector3 Separation() 
 		{
 			Debug.Log ("Separation parent class");
@@ -227,6 +242,14 @@ namespace PSFlocking
 			return force;
 		}
 
+
+		/**
+		 * @brief Calculates a vector to move the unit towards a GameObject specified as a goal.
+		 * This function gets the goal variable from PSUnitManager and returns a Vector pointing towards it.
+		 * If the goal GameObject is not set, the function will return a zero-vector.
+		 * This function can be overridden in a subclass.
+		 * @return Vector3 Vector towards the goal GameObject of PSUnitManager, or a zero-vector if that variable is not set.
+		 */ 
 		protected virtual Vector3 SeekGoal() {
 			// check if there is a goal 
 			if (manager.GetComponent<PSUnitManager>().seekGoal) 

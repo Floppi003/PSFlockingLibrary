@@ -5,6 +5,8 @@ using UnityEngine;
 // Unity3D C# Coding Guidelines: http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines
 namespace PSFlocking
 {
+
+	/*! The manager that holds a list of all units, and all attributes about the flock. */
 	public class PSUnitManager : MonoBehaviour 
 	{
 		//! Array holding the boids
@@ -103,7 +105,10 @@ namespace PSFlocking
 
 
 
-		// Update is called once per frame
+		/**
+		 * @brief Called once from Unity. Do not call manually.
+		 * Sets up the units and places them at a random position within the SpawnRange.
+		 */
 		protected void Start() 
 		{
 			//units = new GameObject[numUnits];
@@ -154,6 +159,14 @@ namespace PSFlocking
 			}
 		}
 
+
+		#region Manage FlockUnits
+
+		/**
+		 * @brief Adds a unit to the unit list
+		 * If the passed gameobject does not have a PSFlockingUnit or a Rigibdoy attached to it, it adds both. The added rigidbody will not use gravity.
+		 * @param flocker GameObject that should be added to the units list.
+		 */
 		public void AddFlockingUnit(GameObject flocker)
 		{
 			// add a PSFlockingUnit Component to the GameObject if not already attached to it
@@ -178,6 +191,12 @@ namespace PSFlocking
 			this.units.Add(flocker);
 		}
 
+
+		/**
+		 * @brief Removes a unit from the units-list.
+		 * If the passed unit is not within the unit list, this method does nothing.
+		 * @param flocker GameObject that shold be removed from the units list.
+		 */
 		public void RemoveFlockingUnit(GameObject flocker) 
 		{
 			if (this.units.Contains(flocker))
@@ -185,6 +204,8 @@ namespace PSFlocking
 					this.units.Remove(flocker);
 			}
 		}
+
+		#endregion
 	}
 }
 

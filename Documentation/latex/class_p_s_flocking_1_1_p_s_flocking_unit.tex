@@ -11,18 +11,18 @@ Inheritance diagram for P\+S\+Flocking.\+P\+S\+Flocking\+Unit\+:\begin{figure}[H
 \item 
 \mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}} 
 void \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}{Start} ()
-\begin{DoxyCompactList}\small\item\em Called once from Unity. Do not call manually. Sets up variables needed later. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called once from Unity. Do not call manually. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}} 
 void \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}{Update} ()
-\begin{DoxyCompactList}\small\item\em Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}} 
-virtual Vector3 {\bfseries Align} ()
-\item 
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}} 
-virtual Vector3 {\bfseries Cohesion} ()
-\item 
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}\label{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}} 
-virtual Vector3 {\bfseries Separation} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called periodically from Unity. Do not call manually. \end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}{Align} ()
+\begin{DoxyCompactList}\small\item\em Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignment\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns the average velocity of all those units, altered slightly by strength\+Randomizer from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. This function can be overridden in a subclass. \end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}{Cohesion} ()
+\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesion\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns a vector pointing to the center of all those units. \end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}{Separation} ()
+\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separation\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3). \end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ab2ce12145c79e5e179f841412ed2febb}{Seek\+Goal} ()
+\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit towards a Game\+Object specified as a goal. This function gets the goal variable from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager} and returns a Vector pointing towards it. If the goal Game\+Object is not set, the function will return a zero-\/vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,19 +32,74 @@ Game\+Object \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ab4a20f9e1a65d5
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}} 
-\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Update@{Update}}
-\index{Update@{Update}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
-\subsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Align@{Align}}
+\index{Align@{Align}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Align()}{Align()}}
+{\footnotesize\ttfamily virtual Vector3 P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Align (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
-Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. 
+Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignment\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns the average velocity of all those units, altered slightly by strength\+Randomizer from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. This function can be overridden in a subclass. 
 
-\begin{DoxySeeAlso}{See also}
-flock() 
-\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Vector3 Alignment for the Unit, will be applied as a force on its rigidbody. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_p_s_custom_flocker_a50d8ac4146196420bcf1181289a27e40}{P\+S\+Custom\+Flocker}.
+
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Cohesion@{Cohesion}}
+\index{Cohesion@{Cohesion}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Cohesion()}{Cohesion()}}
+{\footnotesize\ttfamily virtual Vector3 P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Cohesion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesion\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns a vector pointing to the center of all those units. 
+
+\begin{DoxyReturn}{Returns}
+Vector3 Cohesion for the Unit, will be applied as a force on its rigidbody. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_p_s_custom_flocker_a46d7ff69872c12983a666293794b976f}{P\+S\+Custom\+Flocker}.
+
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ab2ce12145c79e5e179f841412ed2febb}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ab2ce12145c79e5e179f841412ed2febb}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Seek\+Goal@{Seek\+Goal}}
+\index{Seek\+Goal@{Seek\+Goal}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Seek\+Goal()}{SeekGoal()}}
+{\footnotesize\ttfamily virtual Vector3 P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Seek\+Goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Calculates a vector to move the unit towards a Game\+Object specified as a goal. This function gets the goal variable from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager} and returns a Vector pointing towards it. If the goal Game\+Object is not set, the function will return a zero-\/vector. 
+
+\begin{DoxyReturn}{Returns}
+Vector3 Vector towards the goal Game\+Object of \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, or a zero-\/vector if that variable is not set. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_p_s_custom_flocker_a43590dd2fdf5f37d2116cf08473375c7}{P\+S\+Custom\+Flocker}.
+
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}\label{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Separation@{Separation}}
+\index{Separation@{Separation}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Separation()}{Separation()}}
+{\footnotesize\ttfamily virtual Vector3 P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Separation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separation\+Distance from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}, and also within the viewing\+Angle from \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager}. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3). 
+
+\begin{DoxyReturn}{Returns}
+Vector3 Separation for the Unit, will be applied as a force on its rigidbody. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_p_s_custom_flocker_a2ab0990e603a5102fc80dafee1333c7c}{P\+S\+Custom\+Flocker}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['start',['Start',['../class_f_flocking_unit.html#a2d94e65705a7536fc3c16b2013f9cc16',1,'FFlockingUnit.Start()'],['../class_p_s_flocking_1_1_p_s_flocking_unit.html#ac839f13af6962f86198dd14bf8e2495b',1,'PSFlocking.PSFlockingUnit.Start()']]]
+  ['addflockingunit',['AddFlockingUnit',['../class_p_s_flocking_1_1_p_s_unit_manager.html#a7781ba028d37cfe03fd3c540869751aa',1,'PSFlocking::PSUnitManager']]],
+  ['align',['Align',['../class_p_s_custom_flocker.html#a50d8ac4146196420bcf1181289a27e40',1,'PSCustomFlocker.Align()'],['../class_p_s_flocking_1_1_p_s_flocking_unit.html#ada3fa9e23f12a1b8258dc324f5b3e511',1,'PSFlocking.PSFlockingUnit.Align()']]]
 ];

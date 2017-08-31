@@ -85,20 +85,24 @@ Inheritance diagram for PSFlocking.PSFlockingUnit:</div>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ac839f13af6962f86198dd14bf8e2495b"><td class="memItemLeft" align="right" valign="top"><a id="ac839f13af6962f86198dd14bf8e2495b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#ac839f13af6962f86198dd14bf8e2495b">Start</a> ()</td></tr>
-<tr class="memdesc:ac839f13af6962f86198dd14bf8e2495b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once from Unity. Do not call manually. Sets up variables needed later. <br /></td></tr>
+<tr class="memdesc:ac839f13af6962f86198dd14bf8e2495b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once from Unity. Do not call manually. <br /></td></tr>
 <tr class="separator:ac839f13af6962f86198dd14bf8e2495b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bfe16a5cf81ba127fc76597cb86623a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#a4bfe16a5cf81ba127fc76597cb86623a">Update</a> ()</td></tr>
-<tr class="memdesc:a4bfe16a5cf81ba127fc76597cb86623a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-Velocity-Changer.  <a href="#a4bfe16a5cf81ba127fc76597cb86623a">More...</a><br /></td></tr>
+<tr class="memitem:a4bfe16a5cf81ba127fc76597cb86623a"><td class="memItemLeft" align="right" valign="top"><a id="a4bfe16a5cf81ba127fc76597cb86623a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#a4bfe16a5cf81ba127fc76597cb86623a">Update</a> ()</td></tr>
+<tr class="memdesc:a4bfe16a5cf81ba127fc76597cb86623a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called periodically from Unity. Do not call manually. <br /></td></tr>
 <tr class="separator:a4bfe16a5cf81ba127fc76597cb86623a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada3fa9e23f12a1b8258dc324f5b3e511"><td class="memItemLeft" align="right" valign="top"><a id="ada3fa9e23f12a1b8258dc324f5b3e511"></a>
-virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>Align</b> ()</td></tr>
+<tr class="memitem:ada3fa9e23f12a1b8258dc324f5b3e511"><td class="memItemLeft" align="right" valign="top">virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#ada3fa9e23f12a1b8258dc324f5b3e511">Align</a> ()</td></tr>
+<tr class="memdesc:ada3fa9e23f12a1b8258dc324f5b3e511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignmentDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns the average velocity of all those units, altered slightly by strengthRandomizer from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. This function can be overridden in a subclass.  <a href="#ada3fa9e23f12a1b8258dc324f5b3e511">More...</a><br /></td></tr>
 <tr class="separator:ada3fa9e23f12a1b8258dc324f5b3e511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ad210603e8d8451e14a4de8af9cba0"><td class="memItemLeft" align="right" valign="top"><a id="a87ad210603e8d8451e14a4de8af9cba0"></a>
-virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>Cohesion</b> ()</td></tr>
+<tr class="memitem:a87ad210603e8d8451e14a4de8af9cba0"><td class="memItemLeft" align="right" valign="top">virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#a87ad210603e8d8451e14a4de8af9cba0">Cohesion</a> ()</td></tr>
+<tr class="memdesc:a87ad210603e8d8451e14a4de8af9cba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesionDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns a vector pointing to the center of all those units.  <a href="#a87ad210603e8d8451e14a4de8af9cba0">More...</a><br /></td></tr>
 <tr class="separator:a87ad210603e8d8451e14a4de8af9cba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af486901d480a5520aeae135d46635e60"><td class="memItemLeft" align="right" valign="top"><a id="af486901d480a5520aeae135d46635e60"></a>
-virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>Separation</b> ()</td></tr>
+<tr class="memitem:af486901d480a5520aeae135d46635e60"><td class="memItemLeft" align="right" valign="top">virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#af486901d480a5520aeae135d46635e60">Separation</a> ()</td></tr>
+<tr class="memdesc:af486901d480a5520aeae135d46635e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separationDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3).  <a href="#af486901d480a5520aeae135d46635e60">More...</a><br /></td></tr>
 <tr class="separator:af486901d480a5520aeae135d46635e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ce12145c79e5e179f841412ed2febb"><td class="memItemLeft" align="right" valign="top">virtual Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html#ab2ce12145c79e5e179f841412ed2febb">SeekGoal</a> ()</td></tr>
+<tr class="memdesc:ab2ce12145c79e5e179f841412ed2febb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a vector to move the unit towards a GameObject specified as a goal. This function gets the goal variable from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a> and returns a Vector pointing towards it. If the goal GameObject is not set, the function will return a zero-vector.  <a href="#ab2ce12145c79e5e179f841412ed2febb">More...</a><br /></td></tr>
+<tr class="separator:ab2ce12145c79e5e179f841412ed2febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -108,8 +112,8 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="separator:ab4a20f9e1a65d566b629c59340d537dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4bfe16a5cf81ba127fc76597cb86623a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bfe16a5cf81ba127fc76597cb86623a">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="ada3fa9e23f12a1b8258dc324f5b3e511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada3fa9e23f12a1b8258dc324f5b3e511">&#9670;&nbsp;</a></span>Align()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +122,7 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PSFlocking.PSFlockingUnit.Update </td>
+          <td class="memname">virtual Vector3 PSFlocking.PSFlockingUnit.Align </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -126,13 +130,105 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-Velocity-Changer. </p>
-<dl class="section see"><dt>See also</dt><dd>flock() </dd></dl>
+<p>Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignmentDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns the average velocity of all those units, altered slightly by strengthRandomizer from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. This function can be overridden in a subclass. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 Alignment for the Unit, will be applied as a force on its rigidbody. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_p_s_custom_flocker.html#a50d8ac4146196420bcf1181289a27e40">PSCustomFlocker</a>.</p>
+
+</div>
+</div>
+<a id="a87ad210603e8d8451e14a4de8af9cba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ad210603e8d8451e14a4de8af9cba0">&#9670;&nbsp;</a></span>Cohesion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Vector3 PSFlocking.PSFlockingUnit.Cohesion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesionDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns a vector pointing to the center of all those units. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 Cohesion for the Unit, will be applied as a force on its rigidbody. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_p_s_custom_flocker.html#a46d7ff69872c12983a666293794b976f">PSCustomFlocker</a>.</p>
+
+</div>
+</div>
+<a id="ab2ce12145c79e5e179f841412ed2febb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ce12145c79e5e179f841412ed2febb">&#9670;&nbsp;</a></span>SeekGoal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Vector3 PSFlocking.PSFlockingUnit.SeekGoal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates a vector to move the unit towards a GameObject specified as a goal. This function gets the goal variable from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a> and returns a Vector pointing towards it. If the goal GameObject is not set, the function will return a zero-vector. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 Vector towards the goal GameObject of <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, or a zero-vector if that variable is not set. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_p_s_custom_flocker.html#a43590dd2fdf5f37d2116cf08473375c7">PSCustomFlocker</a>.</p>
+
+</div>
+</div>
+<a id="af486901d480a5520aeae135d46635e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af486901d480a5520aeae135d46635e60">&#9670;&nbsp;</a></span>Separation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Vector3 PSFlocking.PSFlockingUnit.Separation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separationDistance from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>, and also within the viewingAngle from <a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html">PSUnitManager</a>. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3). </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 Separation for the Unit, will be applied as a force on its rigidbody. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_p_s_custom_flocker.html#a2ab0990e603a5102fc80dafee1333c7c">PSCustomFlocker</a>.</p>
 
 </div>
 </div>

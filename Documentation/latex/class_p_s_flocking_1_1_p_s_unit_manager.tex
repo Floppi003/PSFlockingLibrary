@@ -9,12 +9,10 @@ Inheritance diagram for P\+S\+Flocking.\+P\+S\+Unit\+Manager\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}\label{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}} 
-void {\bfseries Add\+Flocking\+Unit} (Game\+Object flocker)
-\item 
-\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}\label{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}} 
-void {\bfseries Remove\+Flocking\+Unit} (Game\+Object flocker)
-\end{DoxyCompactItemize}
+void \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}{Add\+Flocking\+Unit} (Game\+Object flocker)
+\begin{DoxyCompactList}\small\item\em Adds a unit to the unit list If the passed gameobject does not have a \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit}{P\+S\+Flocking\+Unit} or a Rigibdoy attached to it, it adds both. The added rigidbody will not use gravity. \end{DoxyCompactList}\item 
+void \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}{Remove\+Flocking\+Unit} (Game\+Object flocker)
+\begin{DoxyCompactList}\small\item\em Removes a unit from the units-\/list. If the passed unit is not within the unit list, this method does nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,8 +74,44 @@ float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a8b2bb3c41213b2298582fa
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a5ddc6c91220d066b472093428b21ee2b}\label{class_p_s_flocking_1_1_p_s_unit_manager_a5ddc6c91220d066b472093428b21ee2b}} 
-void {\bfseries Start} ()
-\end{DoxyCompactItemize}
+void \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a5ddc6c91220d066b472093428b21ee2b}{Start} ()
+\begin{DoxyCompactList}\small\item\em Called once from Unity. Do not call manually. Sets up the units and places them at a random position within the Spawn\+Range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The manager that holds a list of all units, and all attributes about the flock. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}\label{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager@{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager}!Add\+Flocking\+Unit@{Add\+Flocking\+Unit}}
+\index{Add\+Flocking\+Unit@{Add\+Flocking\+Unit}!P\+S\+Flocking\+::\+P\+S\+Unit\+Manager@{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Flocking\+Unit()}{AddFlockingUnit()}}
+{\footnotesize\ttfamily void P\+S\+Flocking.\+P\+S\+Unit\+Manager.\+Add\+Flocking\+Unit (\begin{DoxyParamCaption}\item[{Game\+Object}]{flocker }\end{DoxyParamCaption})}
+
+
+
+Adds a unit to the unit list If the passed gameobject does not have a \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit}{P\+S\+Flocking\+Unit} or a Rigibdoy attached to it, it adds both. The added rigidbody will not use gravity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flocker} & Game\+Object that should be added to the units list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}\label{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager@{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager}!Remove\+Flocking\+Unit@{Remove\+Flocking\+Unit}}
+\index{Remove\+Flocking\+Unit@{Remove\+Flocking\+Unit}!P\+S\+Flocking\+::\+P\+S\+Unit\+Manager@{P\+S\+Flocking\+::\+P\+S\+Unit\+Manager}}
+\subsubsection{\texorpdfstring{Remove\+Flocking\+Unit()}{RemoveFlockingUnit()}}
+{\footnotesize\ttfamily void P\+S\+Flocking.\+P\+S\+Unit\+Manager.\+Remove\+Flocking\+Unit (\begin{DoxyParamCaption}\item[{Game\+Object}]{flocker }\end{DoxyParamCaption})}
+
+
+
+Removes a unit from the units-\/list. If the passed unit is not within the unit list, this method does nothing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flocker} & Game\+Object that shold be removed from the units list. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

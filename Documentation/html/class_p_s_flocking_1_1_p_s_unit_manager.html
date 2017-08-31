@@ -83,11 +83,11 @@ Inheritance diagram for PSFlocking.PSUnitManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7781ba028d37cfe03fd3c540869751aa"><td class="memItemLeft" align="right" valign="top"><a id="a7781ba028d37cfe03fd3c540869751aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddFlockingUnit</b> (GameObject flocker)</td></tr>
+<tr class="memitem:a7781ba028d37cfe03fd3c540869751aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html#a7781ba028d37cfe03fd3c540869751aa">AddFlockingUnit</a> (GameObject flocker)</td></tr>
+<tr class="memdesc:a7781ba028d37cfe03fd3c540869751aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a unit to the unit list If the passed gameobject does not have a <a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html">PSFlockingUnit</a> or a Rigibdoy attached to it, it adds both. The added rigidbody will not use gravity.  <a href="#a7781ba028d37cfe03fd3c540869751aa">More...</a><br /></td></tr>
 <tr class="separator:a7781ba028d37cfe03fd3c540869751aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7ec7299b52dc9206629f92dcfb601d2"><td class="memItemLeft" align="right" valign="top"><a id="af7ec7299b52dc9206629f92dcfb601d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveFlockingUnit</b> (GameObject flocker)</td></tr>
+<tr class="memitem:af7ec7299b52dc9206629f92dcfb601d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html#af7ec7299b52dc9206629f92dcfb601d2">RemoveFlockingUnit</a> (GameObject flocker)</td></tr>
+<tr class="memdesc:af7ec7299b52dc9206629f92dcfb601d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a unit from the units-list. If the passed unit is not within the unit list, this method does nothing.  <a href="#af7ec7299b52dc9206629f92dcfb601d2">More...</a><br /></td></tr>
 <tr class="separator:af7ec7299b52dc9206629f92dcfb601d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -168,9 +168,65 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5ddc6c91220d066b472093428b21ee2b"><td class="memItemLeft" align="right" valign="top"><a id="a5ddc6c91220d066b472093428b21ee2b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_flocking_1_1_p_s_unit_manager.html#a5ddc6c91220d066b472093428b21ee2b">Start</a> ()</td></tr>
+<tr class="memdesc:a5ddc6c91220d066b472093428b21ee2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once from Unity. Do not call manually. Sets up the units and places them at a random position within the SpawnRange. <br /></td></tr>
 <tr class="separator:a5ddc6c91220d066b472093428b21ee2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The manager that holds a list of all units, and all attributes about the flock. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7781ba028d37cfe03fd3c540869751aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7781ba028d37cfe03fd3c540869751aa">&#9670;&nbsp;</a></span>AddFlockingUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PSFlocking.PSUnitManager.AddFlockingUnit </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>flocker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a unit to the unit list If the passed gameobject does not have a <a class="el" href="class_p_s_flocking_1_1_p_s_flocking_unit.html">PSFlockingUnit</a> or a Rigibdoy attached to it, it adds both. The added rigidbody will not use gravity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flocker</td><td>GameObject that should be added to the units list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af7ec7299b52dc9206629f92dcfb601d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ec7299b52dc9206629f92dcfb601d2">&#9670;&nbsp;</a></span>RemoveFlockingUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PSFlocking.PSUnitManager.RemoveFlockingUnit </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>flocker</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a unit from the units-list. If the passed unit is not within the unit list, this method does nothing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flocker</td><td>GameObject that shold be removed from the units list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/_Scripts/PSUnitManager.cs</li>
 </ul>
