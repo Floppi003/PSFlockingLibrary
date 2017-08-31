@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-
+using PSFlocking;
 
 public class PSCustomFlocker : PSFlockingUnit
 {
