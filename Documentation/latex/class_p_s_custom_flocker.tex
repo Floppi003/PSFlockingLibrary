@@ -6,19 +6,33 @@ Inheritance diagram for P\+S\+Custom\+Flocker\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{class_p_s_custom_flocker}
 \end{center}
 \end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_p_s_custom_flocker_aecf3471651ecc3e957b5144b0e6b9b21}{P\+S\+Custom\+Flocker} ()
+\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 override Vector3 \hyperlink{class_p_s_custom_flocker_a50d8ac4146196420bcf1181289a27e40}{Align} ()
-\begin{DoxyCompactList}\small\item\em Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignment\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns the average velocity of all those units, altered slightly by strength\+Randomizer from P\+S\+Unit\+Manager. This function can be overridden in a subclass. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Align function, overridden from P\+S\+Flocking\+Unit. \end{DoxyCompactList}\item 
 override Vector3 \hyperlink{class_p_s_custom_flocker_a46d7ff69872c12983a666293794b976f}{Cohesion} ()
-\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesion\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns a vector pointing to the center of all those units. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Cohesion function, overridden from P\+S\+Flocking\+Unit. \end{DoxyCompactList}\item 
 override Vector3 \hyperlink{class_p_s_custom_flocker_a2ab0990e603a5102fc80dafee1333c7c}{Separation} ()
-\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separation\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Separation function, overridden from P\+S\+Flocking\+Unit. \end{DoxyCompactList}\item 
 override Vector3 \hyperlink{class_p_s_custom_flocker_a43590dd2fdf5f37d2116cf08473375c7}{Seek\+Goal} ()
-\begin{DoxyCompactList}\small\item\em Calculates a vector to move the unit towards a Game\+Object specified as a goal. This function gets the goal variable from P\+S\+Unit\+Manager and returns a Vector pointing towards it. If the goal Game\+Object is not set, the function will return a zero-\/vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Seek\+Goal function, overridden from P\+S\+Flocking\+Unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_s_custom_flocker_aecf3471651ecc3e957b5144b0e6b9b21}\label{class_p_s_custom_flocker_aecf3471651ecc3e957b5144b0e6b9b21}} 
+\index{P\+S\+Custom\+Flocker@{P\+S\+Custom\+Flocker}!P\+S\+Custom\+Flocker@{P\+S\+Custom\+Flocker}}
+\index{P\+S\+Custom\+Flocker@{P\+S\+Custom\+Flocker}!P\+S\+Custom\+Flocker@{P\+S\+Custom\+Flocker}}
+\subsubsection{\texorpdfstring{P\+S\+Custom\+Flocker()}{PSCustomFlocker()}}
+{\footnotesize\ttfamily P\+S\+Custom\+Flocker.\+P\+S\+Custom\+Flocker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+An example class that implements custom movement. It is very primitive -\/ it moves the unit along the x-\/axis. 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_p_s_custom_flocker_a50d8ac4146196420bcf1181289a27e40}\label{class_p_s_custom_flocker_a50d8ac4146196420bcf1181289a27e40}} 
@@ -29,7 +43,7 @@ override Vector3 \hyperlink{class_p_s_custom_flocker_a43590dd2fdf5f37d2116cf0847
 
 
 
-Calculates a vector to align the unit to other units surrounding it. This function gets all surrounding units that are within the alignment\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns the average velocity of all those units, altered slightly by strength\+Randomizer from P\+S\+Unit\+Manager. This function can be overridden in a subclass. 
+Align function, overridden from P\+S\+Flocking\+Unit. 
 
 \begin{DoxyReturn}{Returns}
 Vector3 Alignment for the Unit, will be applied as a force on its rigidbody. 
@@ -46,7 +60,7 @@ Reimplemented from \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e2
 
 
 
-Calculates a vector to move the unit closer to the flock center. This function gets all surrounding units that are within the cohesion\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns a vector pointing to the center of all those units. 
+Cohesion function, overridden from P\+S\+Flocking\+Unit. 
 
 \begin{DoxyReturn}{Returns}
 Vector3 Cohesion for the Unit, will be applied as a force on its rigidbody. 
@@ -63,7 +77,7 @@ Reimplemented from \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad2106
 
 
 
-Calculates a vector to move the unit towards a Game\+Object specified as a goal. This function gets the goal variable from P\+S\+Unit\+Manager and returns a Vector pointing towards it. If the goal Game\+Object is not set, the function will return a zero-\/vector. 
+Seek\+Goal function, overridden from P\+S\+Flocking\+Unit. 
 
 \begin{DoxyReturn}{Returns}
 Vector3 Vector towards the goal Game\+Object of P\+S\+Unit\+Manager, or a zero-\/vector if that variable is not set. 
@@ -80,7 +94,7 @@ Reimplemented from \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ab2ce1214
 
 
 
-Calculates a vector to move the unit awayf rom other units nearby. This function gets all surrounding units that are within the separation\+Distance from P\+S\+Unit\+Manager, and also within the viewing\+Angle from P\+S\+Unit\+Manager. It returns a vector pointing away from units which are close by. The closer a unit is, the stronger it will point away from it (by the power of 3). 
+Separation function, overridden from P\+S\+Flocking\+Unit. 
 
 \begin{DoxyReturn}{Returns}
 Vector3 Separation for the Unit, will be applied as a force on its rigidbody. 

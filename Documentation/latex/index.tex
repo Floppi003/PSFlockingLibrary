@@ -1,3 +1,10 @@
 \hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
-This is the introduction.\hypertarget{index_install_sec}{}\section{Installation}\label{index_install_sec}
-\hypertarget{index_step1}{}\subsection{Step 1\+: Opening the box}\label{index_step1}
+P\+S\+Flocking\+Library is a customizable Unity3D Flocking-\/\+Library used on Rigidbodies. It follows three general rules\+: 1) Alignment 2) Cohesion 3) Separation 4) Optional\+: Follow a \char`\"{}goal\char`\"{}-\/\+Game\+Object
+
+Each of these rules can be overriden to calculate a custom force that should be added to the boid, providing a lot of flexibility.\hypertarget{index_install_sec}{}\section{Installation}\label{index_install_sec}
+You can download the complete Sourcecode with a unity project containing two example scenes demonstrating standard flocking, and a subclassed example. Alternatively you can download the .dll file on the Release page on Git\+Hub.
+
+In your .cs files, add a \char`\"{}using P\+S\+Flocking;\char`\"{} statement. In Unity, add the P\+S\+Unit\+Manager to a gameobject, and set its variables in the inspector. Important\+: Set at least the \char`\"{}\+Unit Prefab\char`\"{} variable. If you want to use a goal that the units should follow, then also set the \char`\"{}\+Goal\char`\"{} variable. Change the other parameters as you like to get a feeling for them.
+
+You can add and remove units at any time by calling Add\+Flocking\+Unit and Remove\+Flocking\+Unit on the P\+S\+Unit\+Manager script.\hypertarget{index_usage_sec}{}\section{usage\+\_\+sec}\label{index_usage_sec}
+The four functions Alignment, Cohesion, Separation and Seek\+Goal can be subclassed. Each of them returns a Vector3 representing a force that will be applied on the unit\textquotesingle{}s rigidbody. All four forces will be added together, normalized, and then applied to the rigidbody. By subclassing P\+S\+Flocking\+Unit, you can implement custom versions of these 4 functions. Take a look at the P\+S\+Flocking\+Unit class for further details on the functions. 

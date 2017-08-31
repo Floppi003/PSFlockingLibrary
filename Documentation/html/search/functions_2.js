@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['removeflockingunit',['RemoveFlockingUnit',['../class_p_s_flocking_1_1_p_s_unit_manager.html#af7ec7299b52dc9206629f92dcfb601d2',1,'PSFlocking::PSUnitManager']]]
+  ['pscustomflocker',['PSCustomFlocker',['../class_p_s_custom_flocker.html#aecf3471651ecc3e957b5144b0e6b9b21',1,'PSCustomFlocker']]]
 ];

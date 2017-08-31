@@ -65,11 +65,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
-<p>This is the introduction.</p>
+<p>PSFlockingLibrary is a customizable Unity3D Flocking-Library used on Rigidbodies. It follows three general rules: 1) Alignment 2) Cohesion 3) Separation 4) Optional: Follow a "goal"-GameObject</p>
+<p>Each of these rules can be overriden to calculate a custom force that should be added to the boid, providing a lot of flexibility.</p>
 <h1><a class="anchor" id="install_sec"></a>
 Installation</h1>
-<h2><a class="anchor" id="step1"></a>
-Step 1: Opening the box</h2>
+<p>You can download the complete Sourcecode with a unity project containing two example scenes demonstrating standard flocking, and a subclassed example. Alternatively you can download the .dll file on the Release page on GitHub.</p>
+<p>In your .cs files, add a "using PSFlocking;" statement. In Unity, add the PSUnitManager to a gameobject, and set its variables in the inspector. Important: Set at least the "Unit Prefab" variable. If you want to use a goal that the units should follow, then also set the "Goal" variable. Change the other parameters as you like to get a feeling for them.</p>
+<p>You can add and remove units at any time by calling AddFlockingUnit and RemoveFlockingUnit on the PSUnitManager script.</p>
+<h1><a class="anchor" id="usage_sec"></a>
+usage_sec</h1>
+<p>The four functions Alignment, Cohesion, Separation and SeekGoal can be subclassed. Each of them returns a Vector3 representing a force that will be applied on the unit's rigidbody. All four forces will be added together, normalized, and then applied to the rigidbody. By subclassing PSFlockingUnit, you can implement custom versions of these 4 functions. Take a look at the PSFlockingUnit class for further details on the functions. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
