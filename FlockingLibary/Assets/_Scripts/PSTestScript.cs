@@ -26,24 +26,6 @@ public class PSTestScript : MonoBehaviour
 
 			GameObject newObject = GameObject.Instantiate(boid);
 			manager.GetComponent<PSUnitManager>().AddFlockingUnit (newObject);
-
-			/*
-			try 
-			{
-			manager.GetComponent<PSUnitManager>().AddFlockingUnit (newObject);
-			} catch (PSNotAFlockingUnitException e) {
-				Debug.Log ("catched PSNotAFlockingUnitException: " + e);
-				newObject.AddComponent<PSFlockingUnit> ();
-				newObject.GetComponent<PSFlockingUnit> ().Manager = this.manager;
-			}
-
-			try 
-			{
-				manager.GetComponent<PSUnitManager>().AddFlockingUnit (newObject);
-			} catch (PSNotAFlockingUnitException e) {
-				Debug.Log ("catched again! PSNotAFlockingUnitException: " + e);
-			}
-			*/
 		}
 	}
 }

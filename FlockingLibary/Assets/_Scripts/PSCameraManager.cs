@@ -11,18 +11,18 @@ public class PSCameraManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// focus the camera on the boids
-		GameObject[] boids = GameObject.FindGameObjectsWithTag("Boid");
+		// focus the camera on the units
+		GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
 
-		// find the center of all boids
+		// find the center of all units
 		Vector3 center = new Vector3(0, 0, 0);
-		foreach (GameObject boid in boids) {
-			center += boid.transform.position;
+		foreach (GameObject unit in units) {
+			center += unit.transform.position;
 		}
-		center = center / boids.Length;
+		center = center / units.Length;
 
 		// make the camera look at the center
 		this.transform.LookAt(center);
-		this.transform.position = center + new Vector3 (0.0f, 12.0f, -8.0f);
+		this.transform.position = center + new Vector3 (0.0f, 24.0f, -16.0f);
 	}
 }

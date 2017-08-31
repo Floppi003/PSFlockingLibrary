@@ -95,7 +95,6 @@ namespace PSFlocking
 		 */ 
 		protected virtual Vector3 Align() 
 		{
-			Debug.Log ("Align parent class");
 			float alignmentDistance = manager.GetComponent<PSUnitManager>().alignmentDistance;
 
 			Vector3 sum = Vector3.zero;
@@ -143,8 +142,7 @@ namespace PSFlocking
 		 */ 
 		protected virtual Vector3 Cohesion() 
 		{
-			Debug.Log ("Cohesion parent class");
-			// get the maximum distance other boids can be away to be still taken into account for cohesion
+			// get the maximum distance other units can be away to be still taken into account for cohesion
 			float cohesionDistance = manager.GetComponent<PSUnitManager>().cohesionDistance;
 
 			// prepare variables
@@ -199,7 +197,6 @@ namespace PSFlocking
 		 */ 
 		protected virtual Vector3 Separation() 
 		{
-			Debug.Log ("Separation parent class");
 			Vector3 force = Vector3.zero;
 			foreach (GameObject other in manager.GetComponent<PSUnitManager>().units) 
 			{
@@ -236,8 +233,6 @@ namespace PSFlocking
 			strengthMultiplier = Mathf.Min(strengthMultiplier, 1.0f);
 			force = force * strengthMultiplier * 2.0f;
 			force = force + force.normalized;
-
-			//Debug.DrawRay (this.transform.position, force, Color.magenta);
 
 			return force;
 		}
@@ -284,7 +279,6 @@ namespace PSFlocking
 
 				// add the differenct forces up and normalize
 				currentForce = goal + ali + coh + separation;
-				Debug.DrawRay(this.transform.position, currentForce, Color.magenta, 2.0f);
 				currentForce = currentForce.normalized;
 			}
 
@@ -329,8 +323,6 @@ namespace PSFlocking
 				this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity.normalized;
 				this.GetComponent<Rigidbody>().velocity *= manager.GetComponent<PSUnitManager>().maxvelocity;
 			}
-
-			//Debug.DrawRay (this.transform.position, appylingForce, Color.red);
 		}
 
 		private void MakeNewRandom() 
