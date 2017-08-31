@@ -6,10 +6,11 @@ using UnityEngine;
 
 namespace PSFlocking 
 {
+	
+	/*! Each Unit that is part of the flock holds this script. It is the base class for custom flocking subclasses. */
 	public class PSFlockingUnit : MonoBehaviour 
 	{
-
-
+		
 		//! Gets and Sets the GameObject holding a PSUnitManager Component. The setter only works, if the passed GameObject holds a PSUnitManager component.
 		public GameObject Manager 
 		{	
@@ -265,12 +266,8 @@ namespace PSFlocking
 			velocity = this.GetComponent<Rigidbody>().velocity;
 			Vector3 currentForce = Vector3.zero;
 
-			if (manager.GetComponent<PSUnitManager>().obedient/* && Random.Range (0, 50) <= 1*/) 
+			if (manager.GetComponent<PSUnitManager>().obedient) 
 			{
-
-				//Vector3 coh = Vector3.zero;
-				//Vector3 ali = Vector3.zero;
-				//Vector3 separation = Vector3.zero;
 
 				Vector3 ali = this.Align();
 				Vector3 coh = this.Cohesion();
@@ -289,7 +286,7 @@ namespace PSFlocking
 					currentForce = new Vector3(Random.Range (0.01f, 0.1f), Random.Range(0.01f, 0.1f));
 				}
 			}
-
+				
 			this.ApplyForce(currentForce);
 		}
 

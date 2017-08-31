@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*! An example class that implements random movement for a goal GameObject, which will be followed by units. */
 public class PSGoalRandomMovement : MonoBehaviour {
 
+	/*! The speed of the camera movmeent */
 	public float speed = 1.0f;
+
 	private Vector3 moveDirection = Vector3.zero;
 	private float timeUntilNewDirection = 0.0f;
 	private float maximumTimeUntilNewDirection = 3.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
+	/**
+	 * @brief Called periodically from Unity. Do not call manually.
+	 */
 	void Update () {
 
 		// move forward

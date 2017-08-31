@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*! An example class that makes the GameObject holding it look at the center of the flock. It is used for the example scenes on the camera. */
 public class PSCameraManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
+	/**
+	 * @brief Called periodically from Unity. Do not call manually.
+	 */
 	void Update () {
 		// focus the camera on the units
 		GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
