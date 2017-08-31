@@ -73,7 +73,7 @@ Installation</h1>
 <p>In your .cs files, add a "using PSFlocking;" statement. In Unity, add the PSUnitManager to a gameobject, and set its variables in the inspector. Important: Set at least the "Unit Prefab" variable. If you want to use a goal that the units should follow, then also set the "Goal" variable. Change the other parameters as you like to get a feeling for them.</p>
 <p>You can add and remove units at any time by calling AddFlockingUnit and RemoveFlockingUnit on the PSUnitManager script.</p>
 <h1><a class="anchor" id="usage_sec"></a>
-usage_sec</h1>
+Usage</h1>
 <p>The four functions Alignment, Cohesion, Separation and SeekGoal can be subclassed. Each of them returns a Vector3 representing a force that will be applied on the unit's rigidbody. All four forces will be added together, normalized, and then applied to the rigidbody. By subclassing PSFlockingUnit, you can implement custom versions of these 4 functions. Take a look at the PSFlockingUnit class for further details on the functions. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

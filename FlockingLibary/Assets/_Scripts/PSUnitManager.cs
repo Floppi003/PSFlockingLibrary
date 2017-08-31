@@ -250,7 +250,7 @@ namespace PSFlocking
  *
  *
  *
- * \section usage_sec
+ * \section usage_sec Usage
  * 
  * The four functions Alignment, Cohesion, Separation and SeekGoal can be subclassed. 
  * Each of them returns a Vector3 representing a force that will be applied on the unit's rigidbody. 
