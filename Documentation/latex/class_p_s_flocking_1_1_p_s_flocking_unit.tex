@@ -1,0 +1,52 @@
+\hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit}{}\section{P\+S\+Flocking.\+P\+S\+Flocking\+Unit Class Reference}
+\label{class_p_s_flocking_1_1_p_s_flocking_unit}\index{P\+S\+Flocking.\+P\+S\+Flocking\+Unit@{P\+S\+Flocking.\+P\+S\+Flocking\+Unit}}
+Inheritance diagram for P\+S\+Flocking.\+P\+S\+Flocking\+Unit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_p_s_flocking_1_1_p_s_flocking_unit}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}} 
+void \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ac839f13af6962f86198dd14bf8e2495b}{Start} ()
+\begin{DoxyCompactList}\small\item\em Called once from Unity. Do not call manually. Sets up variables needed later. \end{DoxyCompactList}\item 
+void \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}{Update} ()
+\begin{DoxyCompactList}\small\item\em Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ada3fa9e23f12a1b8258dc324f5b3e511}} 
+virtual Vector3 {\bfseries Align} ()
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a87ad210603e8d8451e14a4de8af9cba0}} 
+virtual Vector3 {\bfseries Cohesion} ()
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}\label{class_p_s_flocking_1_1_p_s_flocking_unit_af486901d480a5520aeae135d46635e60}} 
+virtual Vector3 {\bfseries Separation} ()
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_ab4a20f9e1a65d566b629c59340d537dd}\label{class_p_s_flocking_1_1_p_s_flocking_unit_ab4a20f9e1a65d566b629c59340d537dd}} 
+Game\+Object \hyperlink{class_p_s_flocking_1_1_p_s_flocking_unit_ab4a20f9e1a65d566b629c59340d537dd}{Manager}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets and Sets the Game\+Object holding a \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager} Component. The setter only works, if the passed Game\+Object holds a \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager}{P\+S\+Unit\+Manager} component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}\label{class_p_s_flocking_1_1_p_s_flocking_unit_a4bfe16a5cf81ba127fc76597cb86623a}} 
+\index{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}!Update@{Update}}
+\index{Update@{Update}!P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit@{P\+S\+Flocking\+::\+P\+S\+Flocking\+Unit}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void P\+S\+Flocking.\+P\+S\+Flocking\+Unit.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Called periodically from Unity. Do not call manually. Makes the Boids look in the direction they are moving, calls the flock function and manages the Timer for the Goal-\/\+Velocity-\/\+Changer. 
+
+\begin{DoxySeeAlso}{See also}
+flock() 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+\_\+\+Scripts/P\+S\+Flocking\+Unit.\+cs\end{DoxyCompactItemize}

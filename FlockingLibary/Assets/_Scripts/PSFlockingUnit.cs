@@ -94,6 +94,7 @@ namespace PSFlocking
 
 		protected virtual Vector3 Align() 
 		{
+			Debug.Log ("Align parent class");
 			float alignmentDistance = manager.GetComponent<PSUnitManager>().alignmentDistance;
 
 			Vector3 sum = Vector3.zero;
@@ -134,6 +135,7 @@ namespace PSFlocking
 
 		protected virtual Vector3 Cohesion() 
 		{
+			Debug.Log ("Cohesion parent class");
 			// get the maximum distance other boids can be away to be still taken into account for cohesion
 			float cohesionDistance = manager.GetComponent<PSUnitManager>().cohesionDistance;
 
@@ -182,6 +184,7 @@ namespace PSFlocking
 
 		protected virtual Vector3 Separation() 
 		{
+			Debug.Log ("Separation parent class");
 			Vector3 force = Vector3.zero;
 			foreach (GameObject other in manager.GetComponent<PSUnitManager>().units) 
 			{
@@ -224,6 +227,21 @@ namespace PSFlocking
 			return force;
 		}
 
+		protected virtual Vector3 SeekGoal() {
+			// check if there is a goal 
+			if (manager.GetComponent<PSUnitManager>().seekGoal) 
+			{
+				// get the goal
+				GameObject goalGO = manager.GetComponent<PSUnitManager>().goal;
+				if (goalGO != null) 
+				{
+					return this.VectorToTarget(goalGO.transform.position);
+				}
+			}
+
+			return Vector3.zero;
+		}
+
 		private void Flock() 
 		{
 			velocity = this.GetComponent<Rigidbody>().velocity;
@@ -239,21 +257,11 @@ namespace PSFlocking
 				Vector3 ali = this.Align();
 				Vector3 coh = this.Cohesion();
 				Vector3 separation = this.Separation();
-				Vector3 goal = Vector3.zero;
-
-				// check if there is a goal 
-				if (manager.GetComponent<PSUnitManager>().seekGoal) 
-				{
-					// get the goal
-					GameObject goalGO = manager.GetComponent<PSUnitManager>().goal;
-					if (goalGO != null) 
-					{
-						goal = this.VectorToTarget(goalGO.transform.position);
-					}
-				}
+				Vector3 goal = this.SeekGoal();
 
 				// add the differenct forces up and normalize
 				currentForce = goal + ali + coh + separation;
+				Debug.DrawRay(this.transform.position, currentForce, Color.magenta, 2.0f);
 				currentForce = currentForce.normalized;
 			}
 

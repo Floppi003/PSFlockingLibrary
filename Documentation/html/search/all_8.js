@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['seekgoal',['seekGoal',['../class_f_unit_manager.html#a79d01dac80c57300f39750b6f6d920eb',1,'FUnitManager']]],
-  ['separationdistance',['separationDistance',['../class_f_unit_manager.html#a99ced2e66851fd9dc1356935710cb315',1,'FUnitManager']]],
-  ['separationstrength',['separationStrength',['../class_f_unit_manager.html#a592278d1412ee25871d11b26cfca66e6',1,'FUnitManager']]],
-  ['spawnrange',['spawnRange',['../class_f_unit_manager.html#a96ce82693289e9fded138cf1f59c4c40',1,'FUnitManager']]],
-  ['start',['Start',['../class_f_flocking_unit.html#a2d94e65705a7536fc3c16b2013f9cc16',1,'FFlockingUnit']]]
+  ['randomizerstrength',['randomizerStrength',['../class_f_unit_manager.html#a4e7f24e9faeda6f66ab7f5a6d193cff6',1,'FUnitManager.randomizerStrength()'],['../class_p_s_flocking_1_1_p_s_unit_manager.html#a7d2b62844ac4629ec9d6d90327741768',1,'PSFlocking.PSUnitManager.randomizerStrength()']]]
 ];

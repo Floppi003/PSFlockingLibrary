@@ -1,0 +1,85 @@
+\hypertarget{class_p_s_flocking_1_1_p_s_unit_manager}{}\section{P\+S\+Flocking.\+P\+S\+Unit\+Manager Class Reference}
+\label{class_p_s_flocking_1_1_p_s_unit_manager}\index{P\+S\+Flocking.\+P\+S\+Unit\+Manager@{P\+S\+Flocking.\+P\+S\+Unit\+Manager}}
+Inheritance diagram for P\+S\+Flocking.\+P\+S\+Unit\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_s_flocking_1_1_p_s_unit_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}\label{class_p_s_flocking_1_1_p_s_unit_manager_a7781ba028d37cfe03fd3c540869751aa}} 
+void {\bfseries Add\+Flocking\+Unit} (Game\+Object flocker)
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}\label{class_p_s_flocking_1_1_p_s_unit_manager_af7ec7299b52dc9206629f92dcfb601d2}} 
+void {\bfseries Remove\+Flocking\+Unit} (Game\+Object flocker)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_aedaaee6bb56890420722506563f6b588}\label{class_p_s_flocking_1_1_p_s_unit_manager_aedaaee6bb56890420722506563f6b588}} 
+List$<$ Game\+Object $>$ \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_aedaaee6bb56890420722506563f6b588}{units}
+\begin{DoxyCompactList}\small\item\em Array holding the boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a1a733c51307f36d98644e35d833a7955}\label{class_p_s_flocking_1_1_p_s_unit_manager_a1a733c51307f36d98644e35d833a7955}} 
+bool \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a1a733c51307f36d98644e35d833a7955}{manual\+Start} = false
+\begin{DoxyCompactList}\small\item\em Will not place any boids automatically in the scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a4d79206a2784be39d27fcb36c91656e4}\label{class_p_s_flocking_1_1_p_s_unit_manager_a4d79206a2784be39d27fcb36c91656e4}} 
+Game\+Object \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a4d79206a2784be39d27fcb36c91656e4}{unit\+Prefab}
+\begin{DoxyCompactList}\small\item\em Prefab Object from which the Boids will be created. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a765240b34b3a5ce19e6f711798c4d1bf}\label{class_p_s_flocking_1_1_p_s_unit_manager_a765240b34b3a5ce19e6f711798c4d1bf}} 
+int \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a765240b34b3a5ce19e6f711798c4d1bf}{num\+Units} = 100
+\begin{DoxyCompactList}\small\item\em Number of Boids that will be created. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_aa9c3797d524485b906ca919640f80c57}\label{class_p_s_flocking_1_1_p_s_unit_manager_aa9c3797d524485b906ca919640f80c57}} 
+Vector3 \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_aa9c3797d524485b906ca919640f80c57}{spawn\+Range} = new Vector3(10.\+0f, 5f, 10.\+0f)
+\begin{DoxyCompactList}\small\item\em The Spawnrange in which the Boids will be instantiated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_acab1025d71a518ffd6fdecfbeef80b0a}\label{class_p_s_flocking_1_1_p_s_unit_manager_acab1025d71a518ffd6fdecfbeef80b0a}} 
+Game\+Object \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_acab1025d71a518ffd6fdecfbeef80b0a}{goal}
+\begin{DoxyCompactList}\small\item\em A Goal the Boids will follow, if seek\+Goal is set to true. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_ae308dcd912212ae803fd6d9c48b25288}\label{class_p_s_flocking_1_1_p_s_unit_manager_ae308dcd912212ae803fd6d9c48b25288}} 
+bool \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_ae308dcd912212ae803fd6d9c48b25288}{seek\+Goal} = true
+\begin{DoxyCompactList}\small\item\em If set to true, the Boids will follow the \char`\"{}goal\char`\"{} Game\+Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a6ee39d3bff7f5f98b688738c82dbfbf3}\label{class_p_s_flocking_1_1_p_s_unit_manager_a6ee39d3bff7f5f98b688738c82dbfbf3}} 
+bool \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a6ee39d3bff7f5f98b688738c82dbfbf3}{obedient} = true
+\begin{DoxyCompactList}\small\item\em Will apply random forces to boids from time to time, if set to true. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_ad4a71076e0bd500485ef978e3a71ea8e}\label{class_p_s_flocking_1_1_p_s_unit_manager_ad4a71076e0bd500485ef978e3a71ea8e}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_ad4a71076e0bd500485ef978e3a71ea8e}{max\+Force} = 4.\+0f
+\begin{DoxyCompactList}\small\item\em The maximum Force that will be applied to the Boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a5c4bed8aa8fd71ce724c813e0903e0fb}\label{class_p_s_flocking_1_1_p_s_unit_manager_a5c4bed8aa8fd71ce724c813e0903e0fb}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a5c4bed8aa8fd71ce724c813e0903e0fb}{maxvelocity} = 2.\+0f
+\begin{DoxyCompactList}\small\item\em The maximum Velocity the Boids can reach. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a4bced9fa2de0369f6288e5d65cb0fc4b}\label{class_p_s_flocking_1_1_p_s_unit_manager_a4bced9fa2de0369f6288e5d65cb0fc4b}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a4bced9fa2de0369f6288e5d65cb0fc4b}{alignment\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will align to each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_aa45a0fe01bcf38a17e9e9f315455a820}\label{class_p_s_flocking_1_1_p_s_unit_manager_aa45a0fe01bcf38a17e9e9f315455a820}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_aa45a0fe01bcf38a17e9e9f315455a820}{alignment\+Distance} = 6
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make alignmet work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a86b7428c21b9f76a78dd13221c4ff700}\label{class_p_s_flocking_1_1_p_s_unit_manager_a86b7428c21b9f76a78dd13221c4ff700}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a86b7428c21b9f76a78dd13221c4ff700}{cohesion\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will stick to each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a9ffaea9774cccd08c81b501dd6965fac}\label{class_p_s_flocking_1_1_p_s_unit_manager_a9ffaea9774cccd08c81b501dd6965fac}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a9ffaea9774cccd08c81b501dd6965fac}{cohesion\+Distance} = 6
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make cohesion work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_aa24cb0b36be539ede2aafc43952f4f03}\label{class_p_s_flocking_1_1_p_s_unit_manager_aa24cb0b36be539ede2aafc43952f4f03}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_aa24cb0b36be539ede2aafc43952f4f03}{separation\+Strength} = 0.\+5f
+\begin{DoxyCompactList}\small\item\em Sets how much the Boids will try to move away from each other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a8d462943657ab150dc43d8007e8d52d0}\label{class_p_s_flocking_1_1_p_s_unit_manager_a8d462943657ab150dc43d8007e8d52d0}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a8d462943657ab150dc43d8007e8d52d0}{separation\+Distance} = 5
+\begin{DoxyCompactList}\small\item\em The maximum distance that Boids can be away from each other to make separation work. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a7d2b62844ac4629ec9d6d90327741768}\label{class_p_s_flocking_1_1_p_s_unit_manager_a7d2b62844ac4629ec9d6d90327741768}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a7d2b62844ac4629ec9d6d90327741768}{randomizer\+Strength} = 0.\+2f
+\begin{DoxyCompactList}\small\item\em Sets how much randomized Force should be applied to the Boids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a8b2bb3c41213b2298582fa2f195e394a}\label{class_p_s_flocking_1_1_p_s_unit_manager_a8b2bb3c41213b2298582fa2f195e394a}} 
+float \hyperlink{class_p_s_flocking_1_1_p_s_unit_manager_a8b2bb3c41213b2298582fa2f195e394a}{viewing\+Angle} = 170.\+0f
+\begin{DoxyCompactList}\small\item\em The angle in which a Boid can \char`\"{}see\char`\"{} others. Cohesion, Alignment, Separation will only be applied if Boids are within the viewing Angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_s_flocking_1_1_p_s_unit_manager_a5ddc6c91220d066b472093428b21ee2b}\label{class_p_s_flocking_1_1_p_s_unit_manager_a5ddc6c91220d066b472093428b21ee2b}} 
+void {\bfseries Start} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+\_\+\+Scripts/P\+S\+Unit\+Manager.\+cs\end{DoxyCompactItemize}
