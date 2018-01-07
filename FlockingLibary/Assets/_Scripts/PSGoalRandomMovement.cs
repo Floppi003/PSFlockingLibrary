@@ -11,7 +11,7 @@ public class PSGoalRandomMovement : MonoBehaviour {
 
 	private Vector3 moveDirection = Vector3.zero;
 	private float timeUntilNewDirection = 0.0f;
-	private float maximumTimeUntilNewDirection = 3.0f;
+	public float maximumTimeUntilNewDirection = 20.0f;
 
 	
 	/**

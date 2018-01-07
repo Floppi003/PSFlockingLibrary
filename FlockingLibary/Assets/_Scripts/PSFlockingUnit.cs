@@ -276,7 +276,7 @@ namespace PSFlocking
 
 				// add the differenct forces up and normalize
 				currentForce = goal + ali + coh + separation;
-				currentForce = currentForce.normalized;
+				//currentForce = currentForce.normalized;
 			}
 
 			if (Random.Range(0, 50) <= 1) 
@@ -304,22 +304,25 @@ namespace PSFlocking
 
 		private void ApplyForce(Vector3 force) 
 		{
-			Vector3 appylingForce = new Vector3(force.x, 0f, force.z);
-
+            // clip the force to maxforce (if bigger than max force)
 			if (force.magnitude > manager.GetComponent<PSUnitManager>().maxForce) 
 			{
 				force = force.normalized;
 				force *= manager.GetComponent<PSUnitManager>().maxForce;
 			}
 
-			this.GetComponent<Rigidbody>().AddForce(appylingForce);
+            // add the force
+            this.GetComponent<Rigidbody>().AddForce(force);
 
 
+            // now check again if the new force of the object is bigger than the maxVelocity. if so, then clip.
 			if (this.GetComponent<Rigidbody>().velocity.magnitude > manager.GetComponent<PSUnitManager>().maxvelocity) 
 			{
 				this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity.normalized;
 				this.GetComponent<Rigidbody>().velocity *= manager.GetComponent<PSUnitManager>().maxvelocity;
 			}
+
+            Debug.DrawRay(this.transform.position, force, Color.green, 0.1f);
 		}
 
 		private void MakeNewRandom() 
